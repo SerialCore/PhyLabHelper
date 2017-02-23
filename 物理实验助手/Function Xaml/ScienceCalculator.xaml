@@ -1,0 +1,264 @@
+﻿<Page
+    x:Class="物理实验助手.Function_Xaml.ScienceCalculator"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:物理实验助手.Function_Xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="White">
+
+        <Button Click="Bamburg" Width="49" Height="48" Background="#FFFA3F63" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="0,0,1,0">
+            <TextBlock Text="&#xE700;" FontFamily="Segoe MDL2 Assets" FontSize="20" Foreground="White"/>
+        </Button>
+
+        <CommandBar Background="#FFFA3F53" Foreground="White" Margin="49,0,0,0">
+            <CommandBar.Content>
+                <TextBlock x:Name="state" Text="科学计算器    角度制" Foreground="White" FontSize="20" Margin="10,10,10,10"/>
+            </CommandBar.Content>
+            <AppBarButton Click="_scale" Label="角度制" Icon="OpenPane"  Foreground="White"/>
+            <AppBarButton Click="_radian" Label="弧度制" Icon="ClosePane"  Foreground="White"/>
+            <AppBarSeparator Foreground="White"/>
+            <AppBarButton Click="place_on_file" Icon="Copy" Label="数据归档" Foreground="White"/>
+            <AppBarSeparator Foreground="White"/>
+            <AppBarButton Click="open_record" Icon="List" Label="记录" Foreground="White"/>
+            <AppBarSeparator Foreground="White"/>
+        </CommandBar>
+
+        <Grid Margin="48,47,0,0" BorderBrush="Black" BorderThickness="1,1,0,0">
+
+            <Grid.Resources>
+                <Style TargetType="Button" x:Key="ButtonType">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontSize" Value="25"/>
+                    <Setter Property="VerticalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="BorderBrush" Value="SkyBlue"/>
+                    <Setter Property="BorderThickness" Value="0.5"/>
+                </Style>
+                <Style TargetType="RepeatButton" x:Key="RepeatButtonType">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontSize" Value="25"/>
+                    <Setter Property="VerticalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="BorderBrush" Value="SkyBlue"/>
+                    <Setter Property="BorderThickness" Value="0.5"/>
+                </Style>
+            </Grid.Resources>
+
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="6*"/>
+                </Grid.RowDefinitions>
+                <ScrollViewer Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="0,0,1,0">
+                    <TextBlock x:Name="result" FontSize="25" TextWrapping="Wrap"/>
+                </ScrollViewer>
+                <ScrollViewer Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="0,0,1,1">
+                    <TextBlock x:Name="_result" FontSize="20" TextWrapping="Wrap"/>
+                </ScrollViewer>
+                <Grid Grid.Row="2" Background="#FF6A6A8A" BorderBrush="SkyBlue" BorderThickness="0.5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Click="before"  Content="(" Grid.Row="0" Grid.Column="0" Style="{StaticResource ButtonType}"/>
+                    <Button Click="after" Content="）" Grid.Row="0" Grid.Column="1" Style="{StaticResource ButtonType}"/>
+                    <Button Click="sqrt" Content="√" Grid.Row="0" Grid.Column="2" Style="{StaticResource ButtonType}"/>
+                    <Button Click="fac" Content="!" Grid.Row="0" Grid.Column="3" Style="{StaticResource ButtonType}"/>
+                    <Button Click="Clear" Content="C" Grid.Row="0" Grid.Column="4" Style="{StaticResource ButtonType}"/>
+                    <Button Click="division" Content="/" Grid.Row="0" Grid.Column="5" Style="{StaticResource ButtonType}"/>
+                    <Button Click="multi" Content="*" Grid.Row="0" Grid.Column="6" Style="{StaticResource ButtonType}"/>
+                    <RepeatButton Click="_delete" Content="&#xE750;" Delay="200" Interval="200" FontFamily="Segoe MDL2 Assets" Grid.Row="0" Grid.Column="7" Style="{StaticResource RepeatButtonType}"/>
+                    <Button Click="sin"  Content="sin" Grid.Row="1" Grid.Column="0" Style="{StaticResource ButtonType}"/>
+                    <Button Click="cos" Content="cos" Grid.Row="1" Grid.Column="1" Style="{StaticResource ButtonType}"/>
+                    <Button Click="tan" Content="tan" Grid.Row="1" Grid.Column="2" Style="{StaticResource ButtonType}"/>
+                    <Button Click="ln" Content="ln" Grid.Row="2" Grid.Column="3" Style="{StaticResource ButtonType}"/>
+                    <Button Click="_7" Content="7" Grid.Row="1" Grid.Column="4" Style="{StaticResource ButtonType}"/>
+                    <Button Click="_8"  Content="8" Grid.Row="1" Grid.Column="5" Style="{StaticResource ButtonType}"/>
+                    <Button Click="_9" Content="9" Grid.Row="1" Grid.Column="6" Style="{StaticResource ButtonType}"/>
+                    <Button Click="minus" Content="-" Grid.Row="1" Grid.Column="7" Style="{StaticResource ButtonType}"/>
+                    <Button Click="arcsin" Content="asin" Grid.Row="2" Grid.Column="0" Style="{StaticResource ButtonType}"/>
+                    <Button Click="arccos" Content="acos" Grid.Row="2" Grid.Column="1" Style="{StaticResource ButtonType}"/>
+                    <Button Click="arctan"  Content="atan" Grid.Row="2" Grid.Column="2" Style="{StaticResource ButtonType}"/>
+                    <Button Click="log" Content="lg" Grid.Row="3" Grid.Column="3" Style="{StaticResource ButtonType}"/>
+                    <Button Click="_4" Content="4" Grid.Row="2" Grid.Column="4" Style="{StaticResource ButtonType}"/>
+                    <Button Click="_5" Content="5" Grid.Row="2" Grid.Column="5" Style="{StaticResource ButtonType}"/>
+                    <Button Click="_6" Content="6" Grid.Row="2" Grid.Column="6" Style="{StaticResource ButtonType}"/>
+                    <Button Click="add" Content="+" Grid.Row="2" Grid.Column="7" Style="{StaticResource ButtonType}"/>
+                    <Button Click="sinh" Content="sinh" Grid.Row="3" Grid.Column="0" Style="{StaticResource ButtonType}"/>
+                    <Button Click="cosh" Content="cosh" Grid.Row="3" Grid.Column="1" Style="{StaticResource ButtonType}"/>
+                    <Button Click="tanh"  Content="tanh" Grid.Row="3" Grid.Column="2" Style="{StaticResource ButtonType}"/>
+                    <Button Click="exponent" Content="^" Grid.Row="1" Grid.Column="3" Style="{StaticResource ButtonType}"/>
+                    <Button Click="_1" Content="1" Grid.Row="3" Grid.Column="4" Style="{StaticResource ButtonType}"/>
+                    <Button Click="_2" Content="2" Grid.Row="3" Grid.Column="5" Style="{StaticResource ButtonType}"/>
+                    <Button Click="_3" Content="3" Grid.Row="3" Grid.Column="6" Style="{StaticResource ButtonType}"/>
+                    <Button Click="make" Content="=" Grid.Row="3" Grid.Column="7" Grid.RowSpan="2" Style="{StaticResource ButtonType}"/>
+                    <Button Click="Ans" Content="Ans" Grid.Row="4" Grid.Column="3" Style="{StaticResource ButtonType}"/>
+                    <Button Click="pi"  Content="&#x3C0;" Grid.Row="4" Grid.Column="1" Style="{StaticResource ButtonType}"/>
+                    <Button Click="e" Content="e" Grid.Row="4" Grid.Column="2" Style="{StaticResource ButtonType}"/>
+                    <Button Click="exp" Content="exp" Grid.Row="4" Grid.Column="0" Style="{StaticResource ButtonType}"/>
+                    <Button Click="_0" Content="0" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Style="{StaticResource ButtonType}"/>
+                    <Button Click="point" Content="." Grid.Row="4" Grid.Column="6" Style="{StaticResource ButtonType}"/>
+                </Grid>
+            </Grid>
+            <SplitView x:Name="cal_record" OpenPaneLength="200" CompactPaneLength="0" PaneBackground="White" DisplayMode="CompactOverlay">
+                <SplitView.Pane>
+                    <Grid >
+                        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="0,0,1,1">
+                            <ListView x:Name="record_list" ItemsSource="{Binding Items}" IsItemClickEnabled="True" ItemClick="record_list_ItemClick" SelectionMode="Single">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Record}" FontSize="18"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </ScrollViewer>
+                        <Button Click="_deleterecord" Content="&#xE107;" FontFamily="Segoe MDL2 Assets" Width="48" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                    </Grid>
+                </SplitView.Pane>
+            </SplitView>
+        </Grid>
+
+        <SplitView x:Name="mySplitView" OpenPaneLength="200" CompactPaneLength="48" PaneBackground="#FFFA3F63" DisplayMode="CompactOverlay" Margin="0,48,0,0">
+            <SplitView.Pane>
+                <Grid>
+                    <ScrollViewer Margin="0,0,0,96" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <Button Click="ToHome" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE128;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="RSS"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Button Click="ToTimer" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE121;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="秒表"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <Button Click="ToLabRecord" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE104;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="实验记录"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                                <Button Click="ToCalculator" Width="200" Background="#FFA72B43" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE1D0;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="科学计算器"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                                <Button Click="ToDataProcess" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE74C;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="数据处理"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="5" Orientation="Horizontal">
+                                <Button Click="ToConstantSearch" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE1A3;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="参数查询"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                    <StackPanel Height="48" Orientation="Horizontal" VerticalAlignment="Bottom">
+                        <Button Click="ToAbout" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                            <Grid >
+                                <Grid Margin="0,0,152,0">
+                                    <TextBlock Text="&#xE946;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                </Grid>
+                                <Grid Margin="48,0,0,0">
+                                    <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="关于"/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </SplitView.Pane>
+        </SplitView>
+
+    </Grid>
+
+</Page>

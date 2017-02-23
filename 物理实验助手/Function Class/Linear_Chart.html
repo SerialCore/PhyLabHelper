@@ -1,0 +1,115 @@
+﻿<html>
+<head>
+    <style type="text/css">
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #container {
+            width: 600px;
+            height: 384px;
+            margin: 8px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/javascript" src="flotr2.min.js"></script>
+    <script type="text/javascript">
+
+        var
+              d0 = [], // x轴
+              d1 = [], // 散点
+              d2 = [], // 散点对应的回归线
+              sx = 0,
+              sy = 0,
+              sxy = 0,
+              sxsq = 0,
+              xmean,
+              ymean,
+              alpha,
+              beta,
+              n, x, y;
+
+        var datax;  // 传入的x
+        var datay;  // 传入的y
+
+        function data(o) {
+
+            var obj = eval("(" + o + ")");
+            datax = obj.x;
+            datay = obj.y;
+
+        }
+
+        function clear() {
+
+            d0 = [], // x轴
+            d1 = [], // 散点
+            d2 = [], // 散点对应的回归线
+            sx = 0,
+            sy = 0,
+            sxy = 0,
+            sxsq = 0,
+            xmean,
+            ymean,
+            alpha,
+            beta,
+            n, x, y;
+
+            datax = [];
+            datay = [];
+
+        }
+
+        function chart() {
+
+            (function negative_values(container) {
+
+                for (n = 0; n < datax.length; n++) {
+                    x = datax[n];
+                    y = datay[n];
+
+                    d0.push([x, 0]);
+                    d1.push([x, y]);
+
+                    // 计算线性回归需要的参数
+                    sx += x;
+                    sy += y;
+                    sxy += x * y;
+                    sxsq += Math.pow(x, 2);
+                }
+
+                n = datax.length;
+                xmean = sx / n;
+                ymean = sy / n;
+                beta = ((n * sxy) - (sx * sy)) / ((n * sxsq) - (Math.pow(sx, 2)));
+                alpha = ymean - (beta * xmean);
+
+                // 计算回归线
+                for (n = 0; n < datax.length; n++) {
+                    x = datax[n];
+                    d2.push([x, alpha + beta * x])
+                }
+
+                // 画出图表
+                graph = Flotr.draw(
+                  container, [
+                    { data: d0, shadowSize: 0, color: '#545454' }, // x轴
+                    { data: d1, points: { show: true } },  // 散点
+                    { data: d2, label: 'y = ' + beta.toFixed(3) + '*x' + ' + ' + alpha.toFixed(3) }  // 回归线
+                  ],
+                  {
+                      legend: { position: 'se', backgroundColor: '#D2E8FF' },
+                      title: '线性回归散点图'
+                  }
+                );
+
+            })(document.getElementById("container"));
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,478 @@
+﻿<Page
+    x:Class="物理实验助手.Function_Xaml.DataProcess"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:物理实验助手.Function_Xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="Beige">
+
+        <Button Click="Bamburg" Width="49" Height="48" Background="#FF55C1C1" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="0,0,1,0">
+            <TextBlock Text="&#xE700;" FontFamily="Segoe MDL2 Assets" FontSize="20" Foreground="White"/>
+        </Button>
+
+        <CommandBar Background="#FF55C1B1" Foreground="White" Margin="49,0,0,0">
+            <CommandBar.Content>
+                <TextBlock x:Name="resource" Text="数据处理    来源：用户自定义" FontSize="20" Margin="10,10,0,0"/>
+            </CommandBar.Content>
+            <AppBarButton Click="place_on_file"  Icon="Copy" Label="数据归档" Foreground="White"/>
+            <AppBarSeparator Foreground="White"/>
+        </CommandBar>
+
+        <Grid Margin="48,47,0,0" BorderBrush="Black" BorderThickness="1,1,0,0">
+
+            <Pivot >
+                <PivotItem Header="不确定度">
+                    <Grid Margin="0,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="多次测量值：" FontSize="20" Grid.Row="0" VerticalAlignment="Center"/>
+                            <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBox x:Name="num1" Grid.Row="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num2" Grid.Row="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num3" Grid.Row="2" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num4" Grid.Row="3" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num5" Grid.Row="4" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num6" Grid.Row="5" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num7" Grid.Row="6" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num8" Grid.Row="7" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num9" Grid.Row="8" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num10" Grid.Row="9" InputScope="Number" VerticalAlignment="Center"/>
+                                </Grid>
+                            </ScrollViewer>
+                            <Button Click="calculate" Content="计算数据" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF0091FF"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="average" Header="平均值" Grid.Row="0" Grid.Column="0"/>
+                            <TextBox x:Name="variance" Header="方差" Grid.Row="0" Grid.Column="1"/>
+                            <TextBox x:Name="p" Header="置信概率：0.90, 0.95, 0.99, 0.683" Text="0.683" Grid.Row="2" Grid.Column="0"/>
+                            <TextBox x:Name="min_scale" Header="仪器最小刻度" Grid.Row="2" Grid.Column="1"/>
+                            <TextBox x:Name="errors" Header="仪器误差：正态 = 3，均匀 = √3" Text="1.73205" Grid.Row="4" Grid.Column="0"/>
+                            <TextBox x:Name="A_uncertainty" Header="A类不确定度" Grid.Row="4" Grid.Column="1"/>
+                            <TextBox x:Name="B_uncertainty" Header="B类不确定度" Grid.Row="6" Grid.Column="0"/>
+                            <TextBox x:Name="All_uncertainty" Header="总不确定度" Grid.Row="6" Grid.Column="1"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <ScrollViewer Grid.Column="0" Background="#FFD9C3D5" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
+                                <TextBlock x:Name="out_analyse" Foreground="Black"/>
+                            </ScrollViewer>
+                            <Button Click="clear_un" Grid.Column="1" Content="清空数据" Background="#FF0091FF" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        </Grid>
+                    </Grid>
+                </PivotItem>
+                <PivotItem Header="线性回归">
+                    <Grid x:Name="test" Margin="0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="Beige">
+                                <WebView x:Name="chart_board" Source="ms-appx-web:///Function Class/Linear_Chart.html"/>
+                            </Grid>
+                            <ScrollViewer Grid.Row="1" Grid.Column="1" Background="#FFD9C3D5" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                                <TextBlock x:Name="linear" Foreground="Black"/>
+                            </ScrollViewer>
+                            <Button Click="clear_lineat" Grid.Row="1" Grid.Column="0" Content="清空数据" Background="#FF0091FF" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="横坐标的值：" FontSize="20" Grid.Column="0" VerticalAlignment="Center"/>
+                                <TextBlock Text="纵坐标的值：" FontSize="20" Grid.Column="1" VerticalAlignment="Center"/>
+                            </Grid>
+                            <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBox x:Name="x1" Grid.Row="0" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x2" Grid.Row="1" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x3" Grid.Row="2" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x4" Grid.Row="3" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x5" Grid.Row="4" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x6" Grid.Row="5" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x7" Grid.Row="6" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x8" Grid.Row="7" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x9" Grid.Row="8" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x10" Grid.Row="9" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x11" Grid.Row="10" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x12" Grid.Row="11" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x13" Grid.Row="12" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x14" Grid.Row="13" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x15" Grid.Row="14" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x16" Grid.Row="15" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x17" Grid.Row="16" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x18" Grid.Row="17" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x19" Grid.Row="18" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="x20" Grid.Row="19" Grid.Column="0" InputScope="Number" VerticalAlignment="Center"/>
+
+                                    <TextBox x:Name="y1" Grid.Row="0" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y2" Grid.Row="1" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y3" Grid.Row="2" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y4" Grid.Row="3" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y5" Grid.Row="4" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y6" Grid.Row="5" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y7" Grid.Row="6" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y8" Grid.Row="7" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y9" Grid.Row="8" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y10" Grid.Row="9" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y11" Grid.Row="10" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y12" Grid.Row="11" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y13" Grid.Row="12" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y14" Grid.Row="13" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y15" Grid.Row="14" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y16" Grid.Row="15" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y17" Grid.Row="16" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y18" Grid.Row="17" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y19" Grid.Row="18" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="y20" Grid.Row="19" Grid.Column="1" InputScope="Number" VerticalAlignment="Center"/>
+                                </Grid>
+                            </ScrollViewer>
+                            <Button Click="calculateline" Content="线性回归" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF0091FF"/>
+                        </Grid>
+                    </Grid>
+                </PivotItem>
+                <PivotItem Header="矩阵计算">
+                    <Grid Margin="0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="A" Grid.Row="0" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="B" Grid.Row="1" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Margin="5,0,10,5" BorderBrush="White" BorderThickness="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="A1" Grid.Row="0" Grid.Column="0" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A2" Grid.Row="0" Grid.Column="1" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A3" Grid.Row="0" Grid.Column="2" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A4" Grid.Row="0" Grid.Column="3" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A5" Grid.Row="1" Grid.Column="0" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A6" Grid.Row="1" Grid.Column="1" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A7" Grid.Row="1" Grid.Column="2" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A8" Grid.Row="1" Grid.Column="3" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A9" Grid.Row="2" Grid.Column="0" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A10" Grid.Row="2" Grid.Column="1" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A11" Grid.Row="2" Grid.Column="2" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A12" Grid.Row="2" Grid.Column="3" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A13" Grid.Row="3" Grid.Column="0" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A14" Grid.Row="3" Grid.Column="1" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A15" Grid.Row="3" Grid.Column="2" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="A16" Grid.Row="3" Grid.Column="3" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="5,5,10,0" BorderBrush="White" BorderThickness="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="B1" Grid.Row="0" Grid.Column="0" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B2" Grid.Row="0" Grid.Column="1" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B3" Grid.Row="0" Grid.Column="2" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B4" Grid.Row="0" Grid.Column="3" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B5" Grid.Row="1" Grid.Column="0" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B6" Grid.Row="1" Grid.Column="1" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B7" Grid.Row="1" Grid.Column="2" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B8" Grid.Row="1" Grid.Column="3" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B9" Grid.Row="2" Grid.Column="0" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B10" Grid.Row="2" Grid.Column="1" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B11" Grid.Row="2" Grid.Column="2" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B12" Grid.Row="2" Grid.Column="3" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B13" Grid.Row="3" Grid.Column="0" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B14" Grid.Row="3" Grid.Column="1" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B15" Grid.Row="3" Grid.Column="2" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="B16" Grid.Row="3" Grid.Column="3" InputScope="Number" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Visible">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+                                    <MenuFlyoutItem Text="A+B" Grid.Row="0" Click="add"/>
+                                    <MenuFlyoutItem Text="A-B" Grid.Row="1" Click="AsubB"/>
+                                    <MenuFlyoutItem Text="B-A" Grid.Row="2" Click="BsubA"/>
+                                    <MenuFlyoutItem Text="AB" Grid.Row="3" Click="AmulB"/>
+                                    <MenuFlyoutItem Text="BA" Grid.Row="4" Click="BmulA"/>
+                                    <MenuFlyoutItem Text="A的转置" Grid.Row="5" Click="AT"/>
+                                    <MenuFlyoutItem Text="B的转置" Grid.Row="6" Click="BT"/>
+                                    <MenuFlyoutItem Text="A的逆" Grid.Row="7" Click="_A"/>
+                                    <MenuFlyoutItem Text="B的逆" Grid.Row="8" Click="_B"/>
+                                    <MenuFlyoutItem Text="A的行列式值" Grid.Row="9" Click="valueA"/>
+                                    <MenuFlyoutItem Text="B的行列式值" Grid.Row="10" Click="valueB"/>
+                                    <MenuFlyoutItem Text="A的秩" Grid.Row="11" Click="rankA"/>
+                                    <MenuFlyoutItem Text="B的秩" Grid.Row="12" Click="rankB"/>
+                                </Grid>
+                            </ScrollViewer>
+                            <ScrollViewer Grid.Row="1" Background="#FFD9C3D5" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
+                                <TextBlock x:Name="out_matrix" Foreground="Black"/>
+                            </ScrollViewer>
+                            <Button Click="clear_matrix" Content="清空数据" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF0091FF"/>
+                        </Grid>
+                    </Grid>
+                </PivotItem>
+            </Pivot>
+        </Grid>
+
+        <SplitView x:Name="mySplitView" OpenPaneLength="200" CompactPaneLength="48" PaneBackground="#FF55C1C1" DisplayMode="CompactOverlay" Margin="0,48,0,0">
+            <SplitView.Pane>
+                <Grid>
+                    <ScrollViewer Margin="0,0,0,96" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <Button Click="ToHome" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE128;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="RSS"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Button Click="ToTimer" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE121;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="秒表"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <Button Click="ToLabRecord" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE104;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="实验记录"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                                <Button Click="ToCalculator" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE1D0;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="科学计算器"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                                <Button Click="ToDataProcess" Width="200" Background="#FF377777" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE74C;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="数据处理"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="5" Orientation="Horizontal">
+                                <Button Click="ToConstantSearch" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE1A3;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="参数查询"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                    <StackPanel Height="48" Orientation="Horizontal" VerticalAlignment="Bottom">
+                        <Button Click="ToAbout" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                            <Grid >
+                                <Grid Margin="0,0,152,0">
+                                    <TextBlock Text="&#xE946;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                </Grid>
+                                <Grid Margin="48,0,0,0">
+                                    <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="关于"/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </SplitView.Pane>
+        </SplitView>
+
+    </Grid>
+
+</Page>

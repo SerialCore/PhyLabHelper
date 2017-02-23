@@ -1,0 +1,539 @@
+﻿<Page
+    x:Class="物理实验助手.Function_Xaml.ConstantSearch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:物理实验助手.Function_Xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="White">
+
+        <Button Click="Bamburg" Width="49" Height="48" Background="#FFA9A9A9" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="0,0,1,0">
+            <TextBlock Text="&#xE700;" FontFamily="Segoe MDL2 Assets" FontSize="20" Foreground="White"/>
+        </Button>
+
+        <CommandBar Background="#FFA9A999" Foreground="White" Margin="49,0,0,0">
+            <CommandBar.Content>
+                <TextBlock Text="参数查询" FontSize="20" Margin="10,10,0,0"/>
+            </CommandBar.Content>
+            <AppBarButton Click="bing" Icon="Favorite" Label="博客" Foreground="White"/>
+            <AppBarButton Click="kexuewang" Icon="Favorite" Label="科学网" Foreground="White"/>
+            <AppBarButton Click="nature" Icon="Favorite" Label="Nature" Foreground="White"/>
+            <AppBarButton Click="ZKY" Icon="Favorite" Label="中科院数据" Foreground="White"/>
+            <AppBarSeparator Foreground="White"/>
+        </CommandBar>
+
+        <Grid Margin="48,47,0,0" BorderBrush="Black" BorderThickness="1,1,0,0">
+            <Pivot Margin="0,0,0,10">
+                <PivotItem Header="常规">
+                    <Grid BorderBrush="Black" BorderThickness="1">
+                        <ScrollViewer Background="#FFE8E8F0" RequestedTheme="Light" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock IsTextSelectionEnabled="True" Grid.Column="1">
+                                    真空光速  :<LineBreak/><LineBreak/>引力常数  :<LineBreak/><LineBreak/>阿伏加德罗常数  :<LineBreak/><LineBreak/>普适气体常数  :<LineBreak/><LineBreak/>波尔兹曼常数  :
+                                    <LineBreak/><LineBreak/>理想气体摩尔体积  :<LineBreak/><LineBreak/>元电荷  :<LineBreak/><LineBreak/>原子质量单位  :<LineBreak/><LineBreak/>电子静止质量  :<LineBreak/><LineBreak/>电子荷质比  :
+                                    <LineBreak/><LineBreak/>质子静止质量  :<LineBreak/><LineBreak/>中子静止质量  :<LineBreak/><LineBreak/>法拉第常数  :<LineBreak/><LineBreak/>真空电容率  :<LineBreak/><LineBreak/>真空磁导率  :
+                                    <LineBreak/><LineBreak/>电子磁矩  :<LineBreak/><LineBreak/>质子磁矩  :<LineBreak/><LineBreak/>波尔半径  :<LineBreak/><LineBreak/>波尔磁子  :<LineBreak/><LineBreak/>核磁子  :
+                                    <LineBreak/><LineBreak/>普朗克常数  :<LineBreak/><LineBreak/>精细结构常数  :<LineBreak/><LineBreak/>里徳伯常数  :<LineBreak/><LineBreak/>电子康普顿波长  :<LineBreak/><LineBreak/>质子康普顿波长  :
+                                    <LineBreak/><LineBreak/>质子电子质量比  :<LineBreak/>
+                                </TextBlock>
+                                <TextBlock IsTextSelectionEnabled="True" Grid.Column="3">
+                                    c = 299792458 ± 1.2  m·s－1<LineBreak/><LineBreak/>Go = (6.6720 ± 0.0041) × 10^(－11)  m^3·s^(－2)<LineBreak/><LineBreak/>No = (6.022045 ± 0.000031) × 10^23  mol^(－1)
+                                    <LineBreak/><LineBreak/>R = (8.31441 ± 0.00026)  J·mol^(－1)·K^(－1)<LineBreak/><LineBreak/>k = (1.380662 ± 0.000041) × 10^(－23)  J·K^(－1)<LineBreak/><LineBreak/>Vm = (22.41383 ± 0.00070) × 10^(－3)  m^3·mol^(-1)
+                                    <LineBreak/><LineBreak/>e = (1.6021892 ± 0.0000046) × 10^(－19)  C<LineBreak/><LineBreak/>u = (1.6605655 ± 0.0000086) × 10^(－27)  kg<LineBreak/><LineBreak/>me = (9.109534 ± 0.000047) × 10^(－31)  kg
+                                    <LineBreak/><LineBreak/>e/me = (1.7588047 ± 0.0000049) × 10^(－11)  C·kg^(－2)"/><LineBreak/><LineBreak/>mp = (1.6726485 ± 0.0000086) × 10^(－27)  kg<LineBreak/><LineBreak/>mn = (1.6749543 ± 0.0000086)× 10^(－27)  kg
+                                    <LineBreak/><LineBreak/>F = (9.648456 ± 0.000027)  C·mol^(－1)<LineBreak/><LineBreak/>εo = (8.854187818 ± 0.000000071) × 10^(－12)  Ｆ·m^(－2)<LineBreak/><LineBreak/>μo = 12.5663706144 × 10^(－7)  H·m^(－1)
+                                    <LineBreak/><LineBreak/>μe = (9.284832 ± 0.000036) × 10^(－24)  J·Ｔ^(－1)<LineBreak/><LineBreak/>μp = (1.4106171 ± 0.0000055) × 10^(－23)  J·Ｔ^(－1)<LineBreak/><LineBreak/>αo = (5.2917706 ± 0.0000044) × 10^(－11)  m
+                                    <LineBreak/><LineBreak/>μB = (9.274078 ± 0.000036) × 10^(－24)  J·Ｔ^(－1)<LineBreak/><LineBreak/>μN = (5.059824 ± 0.000020) × 10^(－27)  J·Ｔ^(－1)<LineBreak/><LineBreak/>h = (6.626176 ± 0.000036) × 10^(－34)  J·s
+                                    <LineBreak/><LineBreak/>a = 7.2973506(60) × 10^(－3)<LineBreak/><LineBreak/>R = 1.097373177(83) × 10^7  m^(－1)<LineBreak/><LineBreak/>λe = 2.4263089(40) × 10^(-12)  m<LineBreak/><LineBreak/>λp = 1.3214099(22) × 10^(-15)  m
+                                    <LineBreak/><LineBreak/>mp/me = 1836.1515<LineBreak/>
+                                </TextBlock>
+                            </Grid>
+                        </ScrollViewer>
+                    </Grid>
+                </PivotItem>
+                <PivotItem Header="密度">
+                    <Grid BorderBrush="Black" BorderThickness="0.5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <ScrollViewer Background="#FFE8E8F0" RequestedTheme="Light" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" Grid.Row="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="0.5">
+                            <Grid >
+                                <TextBlock IsTextSelectionEnabled="True" Text="元素单质 ： g/cm^3  标准状态" FontSize="20"/>
+                                <Grid Margin="0,30,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="1">
+                                        Ag<LineBreak/>Al<LineBreak/>Ar<LineBreak/>Au<LineBreak/>B<LineBreak/>Ba<LineBreak/>Be<LineBreak/>Bi<LineBreak/>Br<LineBreak/>C
+                                        <LineBreak/>Ca<LineBreak/>Cd<LineBreak/>Cl<LineBreak/>Co<LineBreak/>Cr<LineBreak/>Cs<LineBreak/>Cu<LineBreak/>Dy<LineBreak/>Er<LineBreak/>Eu
+                                        <LineBreak/>F<LineBreak/>Fe<LineBreak/>Ga<LineBreak/>Ge<LineBreak/>Gd<LineBreak/>H<LineBreak/>He<LineBreak/>Hf<LineBreak/>Hg<LineBreak/>Ho
+                                        <LineBreak/>I<LineBreak/>In<LineBreak/>Ir<LineBreak/>K<LineBreak/>Kr<LineBreak/>La<LineBreak/>Lu<LineBreak/>Mg<LineBreak/>Mn<LineBreak/>Mo
+                                        <LineBreak/>N<LineBreak/>Na<LineBreak/>Nb<LineBreak/>Nd<LineBreak/>Ne<LineBreak/>Ni<LineBreak/>O<LineBreak/>Os<LineBreak/>P<LineBreak/>Pb
+                                        <LineBreak/>Pd<LineBreak/>Pr<LineBreak/>Pt<LineBreak/>Rb<LineBreak/>Re<LineBreak/>Rh<LineBreak/>Ru<LineBreak/>S<LineBreak/>Sb<LineBreak/>Sc
+                                        <LineBreak/>Se<LineBreak/>Si<LineBreak/>Sm<LineBreak/>Sn<LineBreak/>Sr<LineBreak/>Ta<LineBreak/>Tb<LineBreak/>Te<LineBreak/>Th<LineBreak/>Ti
+                                        <LineBreak/>Tl<LineBreak/>Tm<LineBreak/>U<LineBreak/>V<LineBreak/>W<LineBreak/>Xe<LineBreak/>Y<LineBreak/>Yb<LineBreak/>Zn<LineBreak/>Zr<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="3">
+                                        银<LineBreak/>铝<LineBreak/>氩<LineBreak/>金<LineBreak/>硼<LineBreak/>钡<LineBreak/>铍<LineBreak/>铋<LineBreak/>溴<LineBreak/>碳
+                                        <LineBreak/>钙<LineBreak/>镉<LineBreak/>氯<LineBreak/>钴<LineBreak/>铬<LineBreak/>铯<LineBreak/>铜<LineBreak/>镝<LineBreak/>铒<LineBreak/>铕
+                                        <LineBreak/>氟<LineBreak/>铁<LineBreak/>镓<LineBreak/>锗<LineBreak/>钆<LineBreak/>氢<LineBreak/>氦<LineBreak/>铪<LineBreak/>汞<LineBreak/>钬
+                                        <LineBreak/>碘<LineBreak/>铟<LineBreak/>铱<LineBreak/>钾<LineBreak/>氪<LineBreak/>镧<LineBreak/>镥<LineBreak/>镁<LineBreak/>锰<LineBreak/>钼
+                                        <LineBreak/>氮<LineBreak/>钠<LineBreak/>铌<LineBreak/>钕<LineBreak/>氖<LineBreak/>镍<LineBreak/>氧<LineBreak/>锇<LineBreak/>磷<LineBreak/>铅
+                                        <LineBreak/>钯<LineBreak/>镨<LineBreak/>铂<LineBreak/>铷<LineBreak/>铼<LineBreak/>铑<LineBreak/>钌<LineBreak/>硫<LineBreak/>锑<LineBreak/>钪
+                                        <LineBreak/>硒<LineBreak/>硅<LineBreak/>钐<LineBreak/>锡<LineBreak/>锶<LineBreak/>钽<LineBreak/>铽<LineBreak/>碲<LineBreak/>钍<LineBreak/>钛
+                                        <LineBreak/>铊<LineBreak/>铥<LineBreak/>铀<LineBreak/>钒<LineBreak/>钨<LineBreak/>氙<LineBreak/>钇<LineBreak/>镱<LineBreak/>锌<LineBreak/>锆<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="5">
+                                        10.492<LineBreak/>2.70<LineBreak/>5.73<LineBreak/>18.88<LineBreak/>2.535
+                                        <LineBreak/>3.5<LineBreak/>1.85<LineBreak/>9.78<LineBreak/>4.2(-273℃)<LineBreak/>3.52(金刚石)  2.25(石墨)
+                                        <LineBreak/>1.55<LineBreak/>8.65<LineBreak/>2.2(-273℃)<LineBreak/>8.71<LineBreak/>7.14
+                                        <LineBreak/>1.873<LineBreak/>8.933<LineBreak/>8.54<LineBreak/>4.77<LineBreak/>5.26
+                                        <LineBreak/>1.5(-273℃)<LineBreak/>7.86<LineBreak/>5.93<LineBreak/>5.46<LineBreak/>7.89
+                                        <LineBreak/>0.763(-260℃)<LineBreak/>0.19(-273℃)<LineBreak/>13.3<LineBreak/>14.193(-38.8℃)<LineBreak/>8.80
+                                        <LineBreak/>4.94<LineBreak/>7.28<LineBreak/>22.42<LineBreak/>0.87<LineBreak/>3.4(-273℃)
+                                        <LineBreak/>6.15<LineBreak/>9.84<LineBreak/>1.74<LineBreak/>7.3<LineBreak/>9.01
+                                        <LineBreak/>1.14(-273℃)<LineBreak/>0.9712<LineBreak/>8.4<LineBreak/>7.00<LineBreak/>1.204(-245℃)
+                                        <LineBreak/>8.8<LineBreak/>1.568(-273℃)<LineBreak/>22.5<LineBreak/>1.83 2.20 2.69<LineBreak/>11.342 11.48
+                                        <LineBreak/>12.16<LineBreak/>6.48<LineBreak/>21.37<LineBreak/>1.53<LineBreak/>20.53
+                                        <LineBreak/>12.44<LineBreak/>12.1<LineBreak/>2.07(正交)  1.96(单斜)<LineBreak/>6.62<LineBreak/>3.02
+                                        <LineBreak/>4.82<LineBreak/>2.42<LineBreak/>7.7~7.8<LineBreak/>7.29(四方)  6.55(正交)  5.75(灰锡)<LineBreak/>2.60
+                                        <LineBreak/>16.6<LineBreak/>8.27<LineBreak/>6.25<LineBreak/>11.00<LineBreak/> 4.5
+                                        <LineBreak/>11.86<LineBreak/>9.33<LineBreak/>18.7<LineBreak/>5.87 <LineBreak/>19.3
+                                        <LineBreak/>3.06(-110℃)<LineBreak/>3.8<LineBreak/>6.98<LineBreak/>6.92 4.32(-273℃)<LineBreak/>6.44<LineBreak/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
+                        <ScrollViewer Background="#FFE8E8F0" RequestedTheme="Light" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5">
+                            <Grid >
+                                <TextBlock IsTextSelectionEnabled="True" Text="常规材料 ： g/cm^3  17-23℃" FontSize="20"/>
+                                <Grid Margin="0,30,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="1">
+                                        熔融石英<LineBreak/>硼硅酸玻璃<LineBreak/>云母<LineBreak/>丙烯树脂<LineBreak/>尼龙
+                                        <LineBreak/>聚乙烯<LineBreak/>聚苯乙烯<LineBreak/>砖<LineBreak/>粉笔<LineBreak/>食盐
+                                        <LineBreak/>赛璐珞<LineBreak/>硬橡胶<LineBreak/>玛瑙<LineBreak/>雪花石膏<LineBreak/>无烟炭
+                                        <LineBreak/>石棉<LineBreak/>石棉纸板<LineBreak/>沥青<LineBreak/>混凝土<LineBreak/>大理石
+                                        <LineBreak/>水泥<LineBreak/>建筑石块<LineBreak/>瓷<LineBreak/>蜡<LineBreak/>石蜡
+                                        <LineBreak/>结晶石膏<LineBreak/>烧石膏<LineBreak/>水晶<LineBreak/>花岗岩<LineBreak/>石墨
+                                        <LineBreak/>松软土<LineBreak/>潮湿土<LineBreak/>方解石<LineBreak/>石炭<LineBreak/>干砂
+                                        <LineBreak/>湿砂<LineBreak/>雪花<LineBreak/>冰(0℃)<LineBreak/>牛油<LineBreak/>香木
+                                        <LineBreak/>榆木<LineBreak/>橡木<LineBreak/>松木<LineBreak/>柚木<LineBreak/>梣木
+                                        <LineBreak/>黑木<LineBreak/>硬脂<LineBreak/>树脂<LineBreak/>象牙<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="3">
+                                        2.1~2.2<LineBreak/>2.3<LineBreak/>2.6~3.2<LineBreak/>1.182<LineBreak/>1.11
+                                        <LineBreak/>0.90<LineBreak/>1.056<LineBreak/>1.8<LineBreak/>2.4<LineBreak/>2.14
+                                        <LineBreak/>1.4<LineBreak/>1.15<LineBreak/>2.6<LineBreak/>2.7<LineBreak/>1.5
+                                        <LineBreak/>2.0~2.8<LineBreak/>1.2<LineBreak/>1.2<LineBreak/>2.25<LineBreak/>2.7
+                                        <LineBreak/>1.38<LineBreak/>2.5<LineBreak/>2.32<LineBreak/>0.97<LineBreak/>0.9
+                                        <LineBreak/>2.25<LineBreak/>1.8<LineBreak/>2.66<LineBreak/>2.65<LineBreak/>2.10
+                                        <LineBreak/>1.2<LineBreak/>1.4<LineBreak/>2.67<LineBreak/>1.35<LineBreak/>1.5
+                                        <LineBreak/>2.0<LineBreak/>0.125<LineBreak/>0.917<LineBreak/>0.91<LineBreak/>0.12~0.2
+                                        <LineBreak/> 0.5~0.6<LineBreak/>0.6~0.9<LineBreak/>0.6~0.8<LineBreak/>0.7~0.9<LineBreak/>0.6~0.8
+                                        <LineBreak/>1.2<LineBreak/>0.97<LineBreak/>1.07<LineBreak/>1.88<LineBreak/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
+                        <ScrollViewer Background="#FFE8E8F0" RequestedTheme="Light" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5">
+                            <Grid >
+                                <TextBlock IsTextSelectionEnabled="True" Text="液体和气体 ： g/cm^3  液体：15℃ 气体：标准状态" FontSize="20"/>
+                                <Grid Margin="0,30,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="1">
+                                        苯胺<LineBreak/>丙酮<LineBreak/>汽油<LineBreak/>海水<LineBreak/>甘油
+                                        <LineBreak/>煤油<LineBreak/>松节油<LineBreak/>橄榄油(干性油)<LineBreak/>润滑油<LineBreak/>甲醇
+                                        <LineBreak/>乙醇<LineBreak/>醚<LineBreak/>乙醚  0.791<LineBreak/>人血<LineBreak/>全职牛乳
+                                        <LineBreak/>1/2硫酸标准液<LineBreak/>盐酸标准液<LineBreak/>硝酸标准液<LineBreak/>氢氧化钠标准液<LineBreak/>氢氧化钾标准液
+                                        <LineBreak/>氯化钾标准液<LineBreak/>液态铝<LineBreak/>液态钾<LineBreak/>液态镁<LineBreak/>液态钠
+                                        <LineBreak/>液态锡<LineBreak/>液态铅<LineBreak/>液态银<LineBreak/>
+                                        <LineBreak/>氮<LineBreak/>氨<LineBreak/>氩<LineBreak/>溴<LineBreak/>氢
+                                        <LineBreak/>空气<LineBreak/>氖<LineBreak/>一氧化碳<LineBreak/>硫化氢<LineBreak/>氦
+                                        <LineBreak/>二氧化碳<LineBreak/>氧<LineBreak/>氪<LineBreak/>氙<LineBreak/>甲烷
+                                        <LineBreak/>氟<LineBreak/>氯<LineBreak/>氯化氢<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="3">
+                                        1.02<LineBreak/>0.792<LineBreak/>0.899<LineBreak/>1.025<LineBreak/>1.26
+                                        <LineBreak/>0.8<LineBreak/>0.87<LineBreak/>0.92<LineBreak/>0.90~0.92<LineBreak/>0.810
+                                        <LineBreak/>0.791<LineBreak/>0.736<LineBreak/>0.791<LineBreak/>1.054<LineBreak/>1.032
+                                        <LineBreak/>1.0304<LineBreak/>1.0162<LineBreak/>1.0322<LineBreak/>1.0414<LineBreak/>1.048
+                                        <LineBreak/>1.0446<LineBreak/>2.382(659℃)<LineBreak/>0.83(63.5℃)<LineBreak/>1.572(650℃)<LineBreak/>0.93(97.7℃)
+                                        <LineBreak/>6.97(232℃)<LineBreak/>10.88(327℃)<LineBreak/>9.46~9.51(960.5℃)<LineBreak/>
+                                        <LineBreak/>1.251<LineBreak/>0.7708<LineBreak/>1.783<LineBreak/>7.139<LineBreak/>0.0899
+                                        <LineBreak/>1.2928<LineBreak/>0.900<LineBreak/>1.2502<LineBreak/>1.539<LineBreak/>0.1785
+                                        <LineBreak/>1.9768<LineBreak/>1.429<LineBreak/>3.68<LineBreak/>5.85<LineBreak/>0.7167
+                                        <LineBreak/>1.69<LineBreak/>3.220<LineBreak/>1.639<LineBreak/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
+                    </Grid>
+                </PivotItem>
+                <PivotItem Header="电磁学">
+                    <Grid BorderBrush="Black" BorderThickness="0.5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <ScrollViewer Background="#FFE8E8F0" RequestedTheme="Light" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" Grid.Column="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="0.5">
+                            <Grid >
+                                <TextBlock IsTextSelectionEnabled="True" Text="常见固体、液体和气体的介电常数 ： F/m  标准大气压" FontSize="20"/>
+                                <Grid Margin="0,30,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="1">
+                                        金刚石<LineBreak/>瓷<LineBreak/>大理石<LineBreak/>花岗岩<LineBreak/>云母<LineBreak/>普通玻璃<LineBreak/>光学玻璃<LineBreak/>石英玻璃<LineBreak/>石蜡<LineBreak/>硬橡胶
+                                        <LineBreak/>电木<LineBreak/>木材<LineBreak/><LineBreak/>松节油<LineBreak/>苯<LineBreak/>柏油<LineBreak/>变压器油<LineBreak/>丙酮<LineBreak/>水<LineBreak/>甘油
+                                        <LineBreak/>蓖麻油<LineBreak/>煤油<LineBreak/>甲醇<LineBreak/>乙醇<LineBreak/>乙醚<LineBreak/><LineBreak/>空气<LineBreak/>氢<LineBreak/>氧<LineBreak/>氦<LineBreak/>氮
+                                        <LineBreak/>氩<LineBreak/>硫化氢<LineBreak/>氯化氢<LineBreak/>氨<LineBreak/>一氧化碳<LineBreak/>溴<LineBreak/>甲烷<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="3">
+                                        18℃<LineBreak/>18℃<LineBreak/>18℃<LineBreak/>18℃<LineBreak/>18℃<LineBreak/>18℃<LineBreak/>18℃<LineBreak/>18℃<LineBreak/>20℃<LineBreak/>18℃
+                                        <LineBreak/>18℃<LineBreak/>18℃<LineBreak/><LineBreak/>20℃<LineBreak/>18℃<LineBreak/>18℃<LineBreak/>18℃<LineBreak/>20℃<LineBreak/>18℃<LineBreak/>15℃
+                                        <LineBreak/>10.9℃<LineBreak/>21℃<LineBreak/>13.4℃<LineBreak/>14.7℃<LineBreak/>20℃<LineBreak/><LineBreak/>0℃<LineBreak/>0℃<LineBreak/>0℃<LineBreak/>0℃<LineBreak/>0℃
+                                        <LineBreak/>0℃<LineBreak/>0℃<LineBreak/>0℃<LineBreak/>0℃<LineBreak/>0℃<LineBreak/>180℃<LineBreak/>0℃<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="5">
+                                        16.5<LineBreak/>6<LineBreak/>8.3<LineBreak/>7~9<LineBreak/>5.7~7.0<LineBreak/>5~7<LineBreak/>7~10<LineBreak/>3.5~4.1<LineBreak/>2.0~2.5<LineBreak/>2.5~2.8
+                                        <LineBreak/>3~5<LineBreak/>2.2~3.7<LineBreak/><LineBreak/>2.2<LineBreak/>2.3<LineBreak/>2.7<LineBreak/>2.2~2.5<LineBreak/>21.5<LineBreak/>80.4<LineBreak/>39.1
+                                        <LineBreak/>4.6<LineBreak/>2.1<LineBreak/>35.4<LineBreak/>26.8<LineBreak/>4.34<LineBreak/><LineBreak/>1.000590<LineBreak/>1.000264<LineBreak/>1.000524<LineBreak/>1.000064<LineBreak/>1.000606
+                                        <LineBreak/>1.00056<LineBreak/>1.004<LineBreak/>0.0046<LineBreak/>1.00837<LineBreak/>1.000690<LineBreak/>1.0128<LineBreak/>1.000953<LineBreak/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
+                        <ScrollViewer Background="#FFE8E8F0" RequestedTheme="Light" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="0.5">
+                            <Grid >
+                                <TextBlock IsTextSelectionEnabled="True" Text="常见导体和绝缘体的电阻率 ： 10^4 ρ  Ω·cm  室温" FontSize="20"/>
+                                <Grid Margin="0,30,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="1">
+                                        银<LineBreak/>铜<LineBreak/>金<LineBreak/>铝<LineBreak/>镁<LineBreak/>钙<LineBreak/>钠<LineBreak/>锰<LineBreak/>铱<LineBreak/>钨<LineBreak/>钼<LineBreak/>铑<LineBreak/>锌<LineBreak/>钾<LineBreak/>镍<LineBreak/>镉
+                                        <LineBreak/>黄铜<LineBreak/>钴<LineBreak/>铁<LineBreak/>钯<LineBreak/>铂<LineBreak/>锡<LineBreak/>铬<LineBreak/>钽<LineBreak/>青铜<LineBreak/>钍<LineBreak/>铅<LineBreak/>高镍铜<LineBreak/>锑<LineBreak/>白铜
+                                        <LineBreak/>铜镍合金<LineBreak/>锰镍铜合金<LineBreak/>康铜<LineBreak/>锇<LineBreak/>殷铜<LineBreak/>汞<LineBreak/>铋<LineBreak/><LineBreak/>石棉<LineBreak/>板岩<LineBreak/>干木料<LineBreak/>大理石<LineBreak/>赛璐珞
+                                        <LineBreak/>电木<LineBreak/>金刚石<LineBreak/>石墨<LineBreak/>钠玻璃<LineBreak/>石英玻璃<LineBreak/>石英/晶轴<LineBreak/>石英⊥晶轴<LineBreak/>云母<LineBreak/>瓷<LineBreak/>火漆<LineBreak/>松香<LineBreak/>硫
+                                        <LineBreak/>聚苯乙烯<LineBreak/>硬橡胶<LineBreak/>石蜡<LineBreak/>琥珀<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="3">
+                                        0.016<LineBreak/>0.017<LineBreak/>0.023<LineBreak/>0.029<LineBreak/>0.044<LineBreak/>0.046<LineBreak/>0.047<LineBreak/>0.05<LineBreak/>0.063<LineBreak/>0.053<LineBreak/>0.054<LineBreak/>0.047<LineBreak/>0.061<LineBreak/>0.066<LineBreak/>0.070<LineBreak/>0.076
+                                        <LineBreak/>0.08<LineBreak/>0.097<LineBreak/>0.10<LineBreak/>0.107<LineBreak/>0.110<LineBreak/>0.113<LineBreak/>0.131<LineBreak/>0.146<LineBreak/>0.18<LineBreak/>0.18<LineBreak/>0.208<LineBreak/>0.45<LineBreak/>0.405<LineBreak/>0.42
+                                        <LineBreak/>0.33<LineBreak/>0.43<LineBreak/>0.49<LineBreak/>0.602<LineBreak/>0.81<LineBreak/>0.958<LineBreak/>1.19<LineBreak/><LineBreak/>10^4<LineBreak/>10^4<LineBreak/>10^6<LineBreak/>10^6<LineBreak/>2x10^6
+                                        <LineBreak/>10^7<LineBreak/>10^8<LineBreak/>8<LineBreak/>10^8<LineBreak/>2x10^10<LineBreak/>10^10<LineBreak/>10^12<LineBreak/>10^11<LineBreak/>2x10^11<LineBreak/>5x10^11<LineBreak/>10^12<LineBreak/>10^13
+                                        <LineBreak/>10^13<LineBreak/>10^14<LineBreak/>3x10^14<LineBreak/>10^15<LineBreak/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
+                        <ScrollViewer Background="#FFE8E8F0" RequestedTheme="Light" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="0.5">
+                            <Grid >
+                                <TextBlock IsTextSelectionEnabled="True" Text="常见导体和半导体的霍尔系数 ： Rh  10^-4 cm^3/C  (若未注明温度，即为300K)" FontSize="20"/>
+                                <Grid Margin="0,30,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="1">
+                                        银<LineBreak/>铝<LineBreak/>金<LineBreak/>铍<LineBreak/>镉<LineBreak/>铜<LineBreak/>铁<LineBreak/>铯
+                                        <LineBreak/>钾<LineBreak/>锂<LineBreak/>钼<LineBreak/>钠<LineBreak/>钽<LineBreak/>钨<LineBreak/>锌<LineBreak/>锗<LineBreak/>
+                                        <LineBreak/>硅<LineBreak/><LineBreak/><LineBreak/><LineBreak/>砷化铟<LineBreak/><LineBreak/><LineBreak/>锑化铟<LineBreak/><LineBreak/>砷化镓<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="3">
+                                        -0.84<LineBreak/>-0.30<LineBreak/>-0.72<LineBreak/>+2.44<LineBreak/>+0.60<LineBreak/>-0.55<LineBreak/>+0.245<LineBreak/>-7.8
+                                        <LineBreak/>-4.2<LineBreak/>-1.7<LineBreak/>+1.26<LineBreak/>-2.5<LineBreak/>+1.01<LineBreak/>+1.18<LineBreak/>+0.33<LineBreak/>1.2x10^2（施主浓度：5.5x10^16 cm^-3，n型）<LineBreak/>1.17x10^4（施主浓度：5.3x10^14 cm^-3，n型）
+                                        <LineBreak/>~3（杂质：As，2.2x10^18 cm^-3，n型）<LineBreak/>~5x10^2（杂质：As，1.75x10^16 cm^-3，n型）<LineBreak/>~4x10^3（杂质：As，2.1x10^15 cm^-3，n型）<LineBreak/>~9（杂质：B，1x10^18 cm^-3，p型）
+                                        <LineBreak/>~40（杂质浓度：2x10^17 cm^-3，p型）<LineBreak/>~400（杂质浓度：1.7x10^16 cm^-3，n型）<LineBreak/>~2x10^3（杂质浓度：1.2x10^15 cm^-3，n型）<LineBreak/>~3.8x10^2（载流子浓度：（9~11）x10^14 cm^-3，n型，p型，78K）<LineBreak/>~4.2x10^3（载流子浓度：1.2x10^15 cm^-3，n型，78K）
+                                        <LineBreak/>1.5x10^3（载流子浓度：5x10^15 cm^-3，n型，100~150K）<LineBreak/>7x10^2（载流子浓度：1x10^16 cm^-3，n型，500K）<LineBreak/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
+                    </Grid>
+                </PivotItem>
+                <PivotItem Header="光学">
+                    <Grid BorderBrush="Black" BorderThickness="0.5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <ScrollViewer Background="#FFE8E8F0" RequestedTheme="Light" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" Grid.Column="0" BorderBrush="Black" BorderThickness="0.5">
+                            <Grid >
+                                <TextBlock IsTextSelectionEnabled="True" Text="常规液体和气体的折射率 ：" FontSize="20"/>
+                                <Grid Margin="0,30,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="1">
+                                        空气<LineBreak/>氢<LineBreak/>氧<LineBreak/>氮<LineBreak/>氦<LineBreak/>氖<LineBreak/>氩<LineBreak/>氯
+                                        <LineBreak/>氨<LineBreak/>二氧化硫<LineBreak/>一氧化碳<LineBreak/>二氧化碳<LineBreak/>硫化氢<LineBreak/>甲烷<LineBreak/>乙烯<LineBreak/>水蒸气<LineBreak/>
+                                        <LineBreak/>水<LineBreak/>丙酮<LineBreak/>氨水<LineBreak/>苯<LineBreak/>溴<LineBreak/>二硫化碳<LineBreak/>三氯甲烷<LineBreak/>甘油
+                                        <LineBreak/>酒精<LineBreak/>乙醚<LineBreak/>甲醇<LineBreak/>甲苯<LineBreak/>四氯化碳<LineBreak/>硝酸（99.94%）<LineBreak/>硫酸（+2%水）<LineBreak/>盐酸<LineBreak/>加拿大树胶<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="3">
+                                        标准态<LineBreak/>标准态<LineBreak/>标准态<LineBreak/>标准态<LineBreak/>标准态<LineBreak/>标准态<LineBreak/>标准态<LineBreak/>标准态
+                                        <LineBreak/>标准态<LineBreak/>标准态<LineBreak/>标准态<LineBreak/>标准态<LineBreak/>标准态<LineBreak/>标准态<LineBreak/>标准态<LineBreak/>标准态<LineBreak/>
+                                        <LineBreak/>20℃<LineBreak/>20℃<LineBreak/>16.5℃<LineBreak/>20℃<LineBreak/>20℃<LineBreak/>18℃<LineBreak/>20℃<LineBreak/>20℃
+                                        <LineBreak/>20℃<LineBreak/>22℃<LineBreak/>20℃<LineBreak/>20℃<LineBreak/>15℃<LineBreak/>16.4℃<LineBreak/>23℃<LineBreak/>10.5℃<LineBreak/>20℃<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="5">
+                                        1.000292<LineBreak/>1.000232<LineBreak/>1.000271<LineBreak/>1.000298<LineBreak/>1.000035<LineBreak/>1.000067<LineBreak/>1.000281<LineBreak/>1.000768
+                                        <LineBreak/>1.000379<LineBreak/>1.000686<LineBreak/>1.000334<LineBreak/>1.000451<LineBreak/>1.000641<LineBreak/>1.000144<LineBreak/>1.000719<LineBreak/>1.000255<LineBreak/>
+                                        <LineBreak/>1.3330<LineBreak/>1.359<LineBreak/>1.325<LineBreak/>1.501<LineBreak/>1.654<LineBreak/>1.6255<LineBreak/>1.446<LineBreak/>1.474
+                                        <LineBreak/>1.3605<LineBreak/>1.351<LineBreak/>1.329<LineBreak/>1.495<LineBreak/>1.46305<LineBreak/>1.397<LineBreak/>1.429<LineBreak/>1.254<LineBreak/>1.530<LineBreak/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
+                        <ScrollViewer Background="#FFE8E8F0" RequestedTheme="Light" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5">
+                            <Grid >
+                                <TextBlock IsTextSelectionEnabled="True" Text="某些元素的明线发射光谱波长 ： Å" FontSize="20"/>
+                                <Grid Margin="0,30,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="1">
+                                        银<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>钡<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>
+                                        <LineBreak/>钙<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>镉<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>
+                                        <LineBreak/>铯<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>铜<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>
+                                        <LineBreak/>氢<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>氦<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>
+                                        <LineBreak/>钾<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="3">
+                                        4055.26<LineBreak/>4210.94<LineBreak/>4212.68<LineBreak/>4668.48<LineBreak/>5209.07<LineBreak/>5465.49<LineBreak/>5471.55<LineBreak/>
+                                        <LineBreak/>4554.04<LineBreak/>4934.09<LineBreak/>5535.55<LineBreak/>5777.66<LineBreak/>6141.72<LineBreak/>6496.90<LineBreak/>6595.32<LineBreak/>7059.96<LineBreak/>7120.31<LineBreak/>7280.27<LineBreak/>
+                                        <LineBreak/>4226.73<LineBreak/>4454.78<LineBreak/>4585.87<LineBreak/>6439.07<LineBreak/>7148.15<LineBreak/>7203.17<LineBreak/>7326.15<LineBreak/>
+                                        <LineBreak/>4678.16<LineBreak/>4799.92<LineBreak/>5085.82<LineBreak/>6099.18<LineBreak/>6438.47<LineBreak/>
+                                        <LineBreak/>4555.35<LineBreak/>4593.18<LineBreak/>5844.7<LineBreak/>6212.87<LineBreak/>6586.51<LineBreak/>6723.28<LineBreak/>6870.45<LineBreak/>6973.29<LineBreak/>7228.53<LineBreak/>
+                                        <LineBreak/>4022.66<LineBreak/>4062.70<LineBreak/>4530.82<LineBreak/>4586.95<LineBreak/>4651.13<LineBreak/>4704.70<LineBreak/>5105.54<LineBreak/>5153.25<LineBreak/>5218.20<LineBreak/>5700.24<LineBreak/>5782.16<LineBreak/>6920.06<LineBreak/>5770.09<LineBreak/>
+                                        <LineBreak/>4101.737<LineBreak/>4340.429<LineBreak/>4340.497<LineBreak/>4861.280<LineBreak/>4861.358<LineBreak/>6562.711<LineBreak/>6562.847<LineBreak/>
+                                        <LineBreak/>4026.189<LineBreak/>4471.482<LineBreak/>4713.144<LineBreak/>4921.930<LineBreak/>5015.680<LineBreak/>5875.625<LineBreak/>6678.150<LineBreak/>7065.70<LineBreak/>7281.35<LineBreak/>
+                                        <LineBreak/>4044.14<LineBreak/>4047.20<LineBreak/>5339.67<LineBreak/>5359.52<LineBreak/>5782.60<LineBreak/>5801.96<LineBreak/>6911.30<LineBreak/>6938.98<LineBreak/>7664.91<LineBreak/>7698.98<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="5">
+                                        锂<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>镁<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>
+                                        <LineBreak/>钠<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>氖<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>
+                                        <LineBreak/>铑<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>铷<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>
+                                        <LineBreak/>锡<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>铊<LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/>
+                                        <LineBreak/>锌<LineBreak/>
+                                    </TextBlock>
+                                    <TextBlock IsTextSelectionEnabled="True" Grid.Column="7">
+                                        4132.29<LineBreak/>4602.86<LineBreak/>4971.99<LineBreak/>6103.04<LineBreak/>6240.1<LineBreak/>6707.85<LineBreak/>
+                                        <LineBreak/>4481.33<LineBreak/>5167.34<LineBreak/>5172.70<LineBreak/>5183.62<LineBreak/>5528.46<LineBreak/>
+                                        <LineBreak/>4668.60<LineBreak/>4982.60<LineBreak/>5149.09<LineBreak/>5153.64<LineBreak/>5688.22<LineBreak/>5889.97<LineBreak/>5895.93<LineBreak/>6154.23<LineBreak/>6160.76<LineBreak/>
+                                        <LineBreak/>6402.2<LineBreak/>6143.1<LineBreak/>5944.8<LineBreak/>5852.5<LineBreak/>5764.4<LineBreak/>5400.6<LineBreak/>5330.8<LineBreak/>
+                                        <LineBreak/>4340.64<LineBreak/>5660.81<LineBreak/>6200.30<LineBreak/>6446.20<LineBreak/>6487.32<LineBreak/>6980.22<LineBreak/>7118.50<LineBreak/>7141.21<LineBreak/>7225.16<LineBreak/>
+                                        <LineBreak/>4201.85<LineBreak/>4215.56<LineBreak/>5724.54<LineBreak/>6070.75<LineBreak/>6206.31<LineBreak/>6298.33<LineBreak/>7408.17<LineBreak/>
+                                        <LineBreak/>4511.30<LineBreak/>4524.74<LineBreak/>5631.68<LineBreak/>5970.30<LineBreak/>6037.70<LineBreak/>6149.67<LineBreak/>6462.36<LineBreak/>
+                                        <LineBreak/>4737.05<LineBreak/>5109.47<LineBreak/>5152.14<LineBreak/>5350.46<LineBreak/>5527.90<LineBreak/>5949.04<LineBreak/>6549.77<LineBreak/>6713.69<LineBreak/>
+                                        <LineBreak/>4057.71<LineBreak/>4680.20<LineBreak/>4722.16<LineBreak/>4810.54<LineBreak/>5181.99<LineBreak/>6362.35<LineBreak/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
+                    </Grid>
+                </PivotItem>
+                <PivotItem Header="Online">
+                    <Grid >
+                        <Grid Height="35" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="back" Content="&#xE0A6;" FontFamily="Segoe MDL2 Assets" Background="#FF0091FF" Height="35" Width="60" Grid.Column="0"/>
+                            <Button Click="forward" Content="&#xE0AB;" FontFamily="Segoe MDL2 Assets" Background="#FF0091FF" Height="35" Width="60" Grid.Column="1"/>
+                            <TextBox x:Name="Urlbox" Text="http://cn.bing.com/" Grid.Column="2"/>
+                            <Button Click="select" Content="&#xE001;" FontFamily="Segoe MDL2 Assets" Background="#FF0091FF" Height="35" Width="60" Grid.Column="3"/>
+                        </Grid>
+                        <ProgressRing x:Name="waitPage" IsActive="False"/>
+                        <WebView x:Name="myWebView" Source="http://blamder.github.io/Phy-MyLab/" Margin="0,40,0,0" ContentLoading="myWebView_ContentLoading" LoadCompleted="myWebView_LoadCompleted"/>
+                    </Grid>
+                </PivotItem>
+            </Pivot>
+        </Grid>
+
+        <SplitView x:Name="mySplitView" OpenPaneLength="200" CompactPaneLength="48" PaneBackground="#FFA9A9A9" DisplayMode="CompactOverlay" Margin="0,48,0,0">
+            <SplitView.Pane>
+                <Grid>
+                    <ScrollViewer Margin="0,0,0,96" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="48"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <Button Click="ToHome" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE128;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="RSS"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Button Click="ToTimer" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE121;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="秒表"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <Button Click="ToLabRecord" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE104;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="实验记录"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                                <Button Click="ToCalculator" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE1D0;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="科学计算器"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                                <Button Click="ToDataProcess" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE74C;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="数据处理"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="5" Orientation="Horizontal">
+                                <Button Click="ToConstantSearch" Width="200" Background="#FF717171" VerticalAlignment="Stretch">
+                                    <Grid >
+                                        <Grid Margin="0,0,152,0">
+                                            <TextBlock Text="&#xE1A3;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                        </Grid>
+                                        <Grid Margin="48,0,0,0">
+                                            <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="参数查询"/>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                    <StackPanel Height="48" Orientation="Horizontal" VerticalAlignment="Bottom">
+                        <Button Click="ToAbout" Width="200" Background="Transparent" VerticalAlignment="Stretch">
+                            <Grid >
+                                <Grid Margin="0,0,152,0">
+                                    <TextBlock Text="&#xE946;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                                </Grid>
+                                <Grid Margin="48,0,0,0">
+                                    <TextBlock Foreground="White">
+                                            <Run Text=" "/>
+                                            <Run Text="关于"/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </SplitView.Pane>
+        </SplitView>
+
+    </Grid>
+
+</Page>
