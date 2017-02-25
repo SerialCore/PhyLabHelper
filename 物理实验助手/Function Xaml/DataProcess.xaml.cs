@@ -450,6 +450,7 @@ namespace 物理实验助手.Function_Xaml
                     }
                 }
             }
+            if (Ai == 0 && Aj == 0) return 1;
             Ai++; Aj++;
             A = new decimal[Ai, Aj];
             for (int i = 0; i < Ai; i++)
@@ -495,6 +496,7 @@ namespace 物理实验助手.Function_Xaml
                     }
                 }
             }
+            if (Bi == 0 && Bj == 0) return 1;
             Bi++; Bj++;
             B = new decimal[Bi, Bj];
             for (int i = 0; i < Bi; i++)

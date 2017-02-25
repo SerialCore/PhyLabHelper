@@ -74,7 +74,7 @@
         <SplitView x:Name="mySplitView" OpenPaneLength="200" CompactPaneLength="48" PaneBackground="#FF47A5DD" DisplayMode="CompactOverlay" Margin="0,48,0,0">
             <SplitView.Pane>
                 <Grid>
-                    <ScrollViewer Margin="0,0,0,96" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+                    <ScrollViewer Margin="0,0,0,48" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="48"/>
