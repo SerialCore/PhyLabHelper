@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid>
-            <SplitView x:Name="function" OpenPaneLength="200" CompactPaneLength="0" PaneBackground="#FF47A5DD" DisplayMode="CompactOverlay">
+            <SplitView x:Name="function" OpenPaneLength="300" CompactPaneLength="0" PaneBackground="#FF47A5DD" DisplayMode="CompactOverlay">
                 <SplitView.Pane>
                     <ListView x:Name="function_list" ItemsSource="{Binding Scenarios}" IsItemClickEnabled="True" ItemClick="function_list_ItemClick" SelectionMode="Single"
                               ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Auto"

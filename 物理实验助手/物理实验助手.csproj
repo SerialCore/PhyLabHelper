@@ -145,8 +145,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Function Class\flotr2.min.js" />
     <Content Include="Function Class\Linear_Chart.html" />
-    <Content Include="Function Xaml\Function_Assets\QR.jpg" />
-    <Content Include="Function Xaml\Function_Assets\力学量采集器.png" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
@@ -204,6 +202,9 @@
     <SDKReference Include="WindowsMobile, Version=10.0.16299.0">
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Function Xaml\Function_Assets\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

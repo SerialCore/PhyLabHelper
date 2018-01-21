@@ -57,6 +57,8 @@ namespace 物理实验助手
             // 之所以要用Item是因为要读取的数据是Item的成员
             var item = e.ClickedItem as Scenario;
             mainFrame.SourcePageType = item.ClassType;
+
+            this.function.IsPaneOpen = !this.function.IsPaneOpen;
         }
     }
 

@@ -49,23 +49,21 @@
             </ScrollViewer>
         </Grid>
 
-        <Grid Margin="48,48,0,0">
-            <SplitView x:Name="RSS_Source" OpenPaneLength="200" CompactPaneLength="0" PaneBackground="White" DisplayMode="CompactOverlay">
-                <SplitView.Pane>
-                    <Grid >
-                        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="0,0,1,1">
-                            <ListView x:Name="rss_list" ItemsSource="{Binding rssSource}" IsItemClickEnabled="True" ItemClick="rss_list_ItemClick"  SelectionMode="Single">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding SourceName}" FontSize="18"/>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-                        </ScrollViewer>
-                    </Grid>
-                </SplitView.Pane>
-            </SplitView>
-        </Grid>
+        <SplitView x:Name="RSS_Source" OpenPaneLength="300" CompactPaneLength="0" PaneBackground="White" DisplayMode="CompactOverlay" Margin="0,48,0,0">
+            <SplitView.Pane>
+                <Grid >
+                    <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="0,0,1,1">
+                        <ListView x:Name="rss_list" ItemsSource="{Binding rssSource}" IsItemClickEnabled="True" ItemClick="rss_list_ItemClick"  SelectionMode="Single">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding SourceName}" FontSize="18"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Grid>
+            </SplitView.Pane>
+        </SplitView>
 
     </Grid>
 

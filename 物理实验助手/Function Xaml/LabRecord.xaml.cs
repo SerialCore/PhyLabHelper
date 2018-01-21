@@ -401,11 +401,6 @@ namespace 物理实验助手.Function_Xaml
 
         #endregion
 
-        private void black_box(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            WebView webview = new WebView();
-            webview.Source = new Uri("blackbox:");
-        }
     }
 }
 

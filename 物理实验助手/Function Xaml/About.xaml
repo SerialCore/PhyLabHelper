@@ -19,7 +19,6 @@
             <ScrollViewer Margin="30,30,100,30" VerticalScrollBarVisibility="Hidden">
                 <StackPanel Orientation="Vertical">
                     <HyperlinkButton Content="联系开发者" NavigateUri="mailto:zwx.atomx@outlook.com"/>
-                    <HyperlinkButton Content="使用教程视频" NavigateUri="http://www.bilibili.com/video/av7656114/"/>
                     <TextBlock />
                     <TextBlock Text="适用" FontSize="20"/>
                     <TextBlock TextWrapping="Wrap">
@@ -59,11 +58,6 @@
                                 1. 我仔细阅读了兰大的大物实验教材，发现有一些参数查询的内容，但基本上没用：一般人用不到，专业人士不够用。
                                 我的数据是从一本基础物理手册上搜罗的，包含物理的很多学科。之所以没有全部录入是因为有些数据太偏，有些不好输，比如核反应式。<LineBreak/>
                     </TextBlock>
-                    <TextBlock Text="微信公众号" FontSize="20"/>
-                    <TextBlock TextWrapping="Wrap">
-                                要想随时关注最新更新，请扫描下面的二维码。<LineBreak/>
-                    </TextBlock>
-                    <Image Source="Function_Assets/QR.jpg" Height="200" Width="200" HorizontalAlignment="Center"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
