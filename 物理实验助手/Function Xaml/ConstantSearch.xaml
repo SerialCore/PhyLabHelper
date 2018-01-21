@@ -13,11 +13,6 @@
             <CommandBar.Content>
                 <TextBlock Text="参数查询" FontSize="20" Margin="58,10,0,0"/>
             </CommandBar.Content>
-            <AppBarButton Click="bing" Icon="Favorite" Label="博客" Foreground="White"/>
-            <AppBarButton Click="kexuewang" Icon="Favorite" Label="科学网" Foreground="White"/>
-            <AppBarButton Click="nature" Icon="Favorite" Label="Nature" Foreground="White"/>
-            <AppBarButton Click="ZKY" Icon="Favorite" Label="中科院数据" Foreground="White"/>
-            <AppBarSeparator Foreground="White"/>
         </CommandBar>
 
         <Grid Margin="0,48,0,0">
@@ -383,24 +378,6 @@
                                 </Grid>
                             </Grid>
                         </ScrollViewer>
-                    </Grid>
-                </PivotItem>
-                <PivotItem Header="Online">
-                    <Grid >
-                        <Grid Height="35" VerticalAlignment="Top">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="60"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Click="back" Content="&#xE0A6;" FontFamily="Segoe MDL2 Assets" Background="#FF0091FF" Height="35" Width="60" Grid.Column="0"/>
-                            <Button Click="forward" Content="&#xE0AB;" FontFamily="Segoe MDL2 Assets" Background="#FF0091FF" Height="35" Width="60" Grid.Column="1"/>
-                            <TextBox x:Name="Urlbox" Text="http://cn.bing.com/" Grid.Column="2"/>
-                            <Button Click="select" Content="&#xE001;" FontFamily="Segoe MDL2 Assets" Background="#FF0091FF" Height="35" Width="60" Grid.Column="3"/>
-                        </Grid>
-                        <ProgressRing x:Name="waitPage" IsActive="False"/>
-                        <WebView x:Name="myWebView" Source="http://blamder.github.io/Phy-MyLab/" Margin="0,40,0,0" ContentLoading="myWebView_ContentLoading" LoadCompleted="myWebView_LoadCompleted"/>
                     </Grid>
                 </PivotItem>
             </Pivot>
