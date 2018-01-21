@@ -64,7 +64,6 @@ namespace 物理实验助手.Function_Xaml
                 // 我更希望用Split，因为简单。用Json只是为了练手。
                 if (e.Parameter.ToString().EndsWith("timer_data") == true)
                 {
-                    resource.Text = "数据处理    来源：秒表    单位：s";
                     // 砍掉尾巴
                     string timelist = e.Parameter.ToString().Replace("timer_data", "");
                     // 以字符‘s’作为分组的依据
@@ -88,46 +87,6 @@ namespace 物理实验助手.Function_Xaml
         }
 
         #region 导航按钮
-
-        private void Bamburg(object sender, RoutedEventArgs e)
-        {
-            this.mySplitView.IsPaneOpen = !this.mySplitView.IsPaneOpen;
-        }
-
-        private void ToHome(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(MainPage));
-        }
-
-        private void ToTimer(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Function_Xaml.Timer));
-        }
-
-        private void ToLabRecord(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Function_Xaml.LabRecord));
-        }
-
-        private void ToCalculator(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Function_Xaml.ScienceCalculator));
-        }
-
-        private void ToDataProcess(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Function_Xaml.DataProcess));
-        }
-
-        private void ToConstantSearch(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Function_Xaml.ConstantSearch));
-        }
-
-        private void ToAbout(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Function_Xaml.About));
-        }
 
         private void place_on_file(object sender, RoutedEventArgs e)
         {
@@ -311,7 +270,6 @@ namespace 物理实验助手.Function_Xaml
                 mydata[i].Text = "";
             average.Text = ""; variance.Text = ""; A_uncertainty.Text = ""; B_uncertainty.Text = ""; All_uncertainty.Text = ""; min_scale.Text = "";
             out_analyse.Text = "";
-            resource.Text = "数据处理    来源：用户自定义";
         }
 
         #endregion

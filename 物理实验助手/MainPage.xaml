@@ -7,194 +7,36 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="White">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <Button Click="Bamburg" Width="49" Height="48" Background="#FF47A5DD" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="0,0,1,0">
-            <TextBlock Text="&#xE700;" FontFamily="Segoe MDL2 Assets" FontSize="20" Foreground="White"/>
-        </Button>
-
-        <CommandBar Background="#FF47A5CD" Foreground="White" Margin="49,0,0,0">
-            <CommandBar.Content>
-                <TextBlock Text="RSS" FontSize="20" Margin="10,10,0,0"/>
-            </CommandBar.Content>
-            <AppBarButton Click="AppBarButton_Click" Icon="Link" Label="RSS源" Foreground="White"/>
-        </CommandBar>
-
-        <Grid Margin="48,47,0,0" BorderBrush="Black" BorderThickness="1,1,0,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" x:Name="rssURL" Text="http://www.sciencenet.cn/xml/paper.aspx?di=7" />
-                <Button Grid.Column="1" Content="加载 RSS" Click="Button_Click" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-            </Grid>
-            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto">
-                <ListView x:Name="listbox" SelectionChanged="OnSelectionChanged">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="60" />
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="{Binding Title}" FontSize="25" TextWrapping="Wrap" />
-                                <TextBlock Grid.Row="1" Text="{Binding PublishedDate}" FontSize="20" />
-                                <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="{Binding PlainSummary}" FontSize="18" Opacity="0.5"/>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ScrollViewer>
-        </Grid>
-
-        <Grid Margin="48,48,0,0">
-            <SplitView x:Name="RSS_Source" OpenPaneLength="200" CompactPaneLength="0" PaneBackground="White" DisplayMode="CompactOverlay">
+        <Grid>
+            <SplitView x:Name="function" OpenPaneLength="200" CompactPaneLength="0" PaneBackground="#FF47A5DD" DisplayMode="CompactOverlay">
                 <SplitView.Pane>
-                    <Grid >
-                        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="0,0,1,1">
-                            <ListView x:Name="rss_list" ItemsSource="{Binding rssSource}" IsItemClickEnabled="True" ItemClick="rss_list_ItemClick"  SelectionMode="Single">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding SourceName}" FontSize="18"/>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-                        </ScrollViewer>
-                    </Grid>
+                    <ListView x:Name="function_list" ItemsSource="{Binding Scenarios}" IsItemClickEnabled="True" ItemClick="function_list_ItemClick" SelectionMode="Single"
+                              ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                              Margin="0,48,0,0">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Height="48" RequestedTheme="Dark">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="24"/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <SymbolIcon Grid.Column="0" Symbol="{Binding Icon}"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Title}" Margin="24,0,0,0" Style="{ThemeResource BodyTextBlockStyle}" VerticalAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </SplitView.Pane>
+                <Frame x:Name="mainFrame"/>
             </SplitView>
         </Grid>
 
-        <SplitView x:Name="mySplitView" OpenPaneLength="200" CompactPaneLength="48" PaneBackground="#FF47A5DD" DisplayMode="CompactOverlay" Margin="0,48,0,0">
-            <SplitView.Pane>
-                <Grid>
-                    <ScrollViewer Margin="0,0,0,48" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="48"/>
-                                <RowDefinition Height="48"/>
-                                <RowDefinition Height="48"/>
-                                <RowDefinition Height="48"/>
-                                <RowDefinition Height="48"/>
-                                <RowDefinition Height="48"/>
-                            </Grid.RowDefinitions>
-                            <StackPanel Grid.Row="0" Orientation="Horizontal">
-                                <Button Click="ToHome" Width="200" Background="#FF2A5F7F" VerticalAlignment="Stretch">
-                                    <Grid >
-                                        <Grid Margin="0,0,152,0">
-                                            <TextBlock Text="&#xE128;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
-                                        </Grid>
-                                        <Grid Margin="48,0,0,0">
-                                            <TextBlock Foreground="White">
-                                            <Run Text=" "/>
-                                            <Run Text="RSS"/>
-                                            </TextBlock>
-                                        </Grid>
-                                    </Grid>
-                                </Button>
-                            </StackPanel>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <Button Click="ToTimer" Width="200" Background="Transparent" VerticalAlignment="Stretch">
-                                    <Grid >
-                                        <Grid Margin="0,0,152,0">
-                                            <TextBlock Text="&#xE121;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
-                                        </Grid>
-                                        <Grid Margin="48,0,0,0">
-                                            <TextBlock Foreground="White">
-                                            <Run Text=" "/>
-                                            <Run Text="秒表"/>
-                                            </TextBlock>
-                                        </Grid>
-                                    </Grid>
-                                </Button>
-                            </StackPanel>
-                            <StackPanel Grid.Row="2" Orientation="Horizontal">
-                                <Button Click="ToLabRecord" Width="200" Background="Transparent" VerticalAlignment="Stretch">
-                                    <Grid >
-                                        <Grid Margin="0,0,152,0">
-                                            <TextBlock Text="&#xE104;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
-                                        </Grid>
-                                        <Grid Margin="48,0,0,0">
-                                            <TextBlock Foreground="White">
-                                            <Run Text=" "/>
-                                            <Run Text="实验记录"/>
-                                            </TextBlock>
-                                        </Grid>
-                                    </Grid>
-                                </Button>
-                            </StackPanel>
-                            <StackPanel Grid.Row="3" Orientation="Horizontal">
-                                <Button Click="ToCalculator" Width="200" Background="Transparent" VerticalAlignment="Stretch">
-                                    <Grid >
-                                        <Grid Margin="0,0,152,0">
-                                            <TextBlock Text="&#xE1D0;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
-                                        </Grid>
-                                        <Grid Margin="48,0,0,0">
-                                            <TextBlock Foreground="White">
-                                            <Run Text=" "/>
-                                            <Run Text="科学计算器"/>
-                                            </TextBlock>
-                                        </Grid>
-                                    </Grid>
-                                </Button>
-                            </StackPanel>
-                            <StackPanel Grid.Row="4" Orientation="Horizontal">
-                                <Button Click="ToDataProcess" Width="200" Background="Transparent" VerticalAlignment="Stretch">
-                                    <Grid >
-                                        <Grid Margin="0,0,152,0">
-                                            <TextBlock Text="&#xE74C;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
-                                        </Grid>
-                                        <Grid Margin="48,0,0,0">
-                                            <TextBlock Foreground="White">
-                                            <Run Text=" "/>
-                                            <Run Text="数据处理"/>
-                                            </TextBlock>
-                                        </Grid>
-                                    </Grid>
-                                </Button>
-                            </StackPanel>
-                            <StackPanel Grid.Row="5" Orientation="Horizontal">
-                                <Button Click="ToConstantSearch" Width="200" Background="Transparent" VerticalAlignment="Stretch">
-                                    <Grid >
-                                        <Grid Margin="0,0,152,0">
-                                            <TextBlock Text="&#xE1A3;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
-                                        </Grid>
-                                        <Grid Margin="48,0,0,0">
-                                            <TextBlock Foreground="White">
-                                            <Run Text=" "/>
-                                            <Run Text="参数查询"/>
-                                            </TextBlock>
-                                        </Grid>
-                                    </Grid>
-                                </Button>
-                            </StackPanel>
-                        </Grid>
-                    </ScrollViewer>
-                    <StackPanel Height="48" Orientation="Horizontal" VerticalAlignment="Bottom">
-                        <Button Click="ToAbout" Width="200" Background="Transparent" VerticalAlignment="Stretch">
-                            <Grid >
-                                <Grid Margin="0,0,152,0">
-                                    <TextBlock Text="&#xE946;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
-                                </Grid>
-                                <Grid Margin="48,0,0,0">
-                                    <TextBlock Foreground="White">
-                                            <Run Text=" "/>
-                                            <Run Text="关于"/>
-                                    </TextBlock>
-                                </Grid>
-                            </Grid>
-                        </Button>
-                    </StackPanel>
-                </Grid>
-            </SplitView.Pane>
-        </SplitView>
+        <Button Click="Button_Click" Width="48" Height="48" Background="#FF47A5DD" VerticalAlignment="Top">
+            <TextBlock Text="&#xE700;" FontFamily="Segoe MDL2 Assets" FontSize="20" Foreground="White"/>
+        </Button>
 
     </Grid>
-
+    
 </Page>

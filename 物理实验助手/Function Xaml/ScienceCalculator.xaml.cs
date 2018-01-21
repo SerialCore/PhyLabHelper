@@ -36,51 +36,6 @@ namespace 物理实验助手.Function_Xaml
 
         #region 导航按钮
 
-        private void Bamburg(object sender, RoutedEventArgs e)
-        {
-            this.mySplitView.IsPaneOpen = !this.mySplitView.IsPaneOpen;
-        }
-
-        private void open_record(object sender, RoutedEventArgs e)
-        {
-            this.cal_record.IsPaneOpen = !this.cal_record.IsPaneOpen;
-        }
-
-        private void ToHome(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(MainPage));
-        }
-
-        private void ToTimer(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Function_Xaml.Timer));
-        }
-
-        private void ToLabRecord(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Function_Xaml.LabRecord));
-        }
-
-        private void ToCalculator(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Function_Xaml.ScienceCalculator));
-        }
-
-        private void ToDataProcess(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Function_Xaml.DataProcess));
-        }
-
-        private void ToConstantSearch(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Function_Xaml.ConstantSearch));
-        }
-
-        private void ToAbout(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Function_Xaml.About));
-        }
-
         private void place_on_file(object sender, RoutedEventArgs e)
         {
             string data = "";
@@ -91,6 +46,10 @@ namespace 物理实验助手.Function_Xaml
             this.Frame.Navigate(typeof(Function_Xaml.LabRecord), "\t\n" + "科学计算器数据：" + "\t\n" + data);
         }
 
+        private void open_record(object sender, RoutedEventArgs e)
+        {
+            cal_record.IsPaneOpen = !cal_record.IsPaneOpen;
+        }
         #endregion
 
         #region 计算器操作
