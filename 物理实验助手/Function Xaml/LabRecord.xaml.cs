@@ -28,10 +28,6 @@ namespace 物理实验助手.Function_Xaml
     /// </summary>
     public sealed partial class LabRecord : Page
     {
-        public MediaCapture AppMediaCapture { get; private set; }
-
-        MediaCapture _capture;
-
         public IReadOnlyList<StorageFile> storageFile { get; set; }
 
         public StorageFile[] x;
@@ -45,6 +41,12 @@ namespace 物理实验助手.Function_Xaml
         // 全局变量，漫游文件夹
         StorageFolder roamingFolder = ApplicationData.Current.RoamingFolder;
 
+        // 相机设置
+        public MediaCapture AppMediaCapture { get; private set; }
+        MediaCapture _capture;
+        private bool _isPreviewing = false;
+        private readonly DisplayRequest _displayRequest = new DisplayRequest();
+
         public LabRecord()
         {
             this.InitializeComponent();
@@ -53,6 +55,9 @@ namespace 物理实验助手.Function_Xaml
             // ListView必需的代码
             fileSource = new ObservableCollection<FileSource>();
             this.DataContext = this;
+
+            Application.Current.EnteredBackground += Current_EnteredBackground;
+            Application.Current.LeavingBackground += Current_LeavingBackground;
         }
 
         #region 导航操作
@@ -104,9 +109,9 @@ namespace 物理实验助手.Function_Xaml
             }
         }
 
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        protected async override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            clear();
+            await CleanupCameraAsync();
         }
 
         private async Task InitializeCapture()
@@ -142,17 +147,61 @@ namespace 物理实验助手.Function_Xaml
             }
         }
 
-        /// <summary>
-        /// 清理相机
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void clear()
+        private async void Current_LeavingBackground(object sender, Windows.ApplicationModel.LeavingBackgroundEventArgs e)
         {
-            if (AppMediaCapture != null)
+            try
             {
-                AppMediaCapture.Dispose();
-                AppMediaCapture = null;
+                await this.InitializeCapture();
+                // 调用相机
+                _capture = null;
+                _capture = AppMediaCapture;
+                this.myCamera.Source = _capture;
+                // 不会锁屏
+                _displayRequest.RequestActive();
+                // 启动预览
+                await _capture.StartPreviewAsync();
+                _isPreviewing = true;
+                // 连续对焦
+                var focusControl = _capture.VideoDeviceController.FocusControl;
+                if (focusControl.Supported)
+                {
+                    await focusControl.UnlockAsync();
+                    var settings = new FocusSettings { Mode = FocusMode.Continuous, AutoFocusRange = AutoFocusRange.FullRange };
+                    focusControl.Configure(settings);
+                    await focusControl.FocusAsync();
+                }
+            }
+            catch
+            {
+                msg.Text = "相机打开错误";
+            }
+        }
+
+        private async void Current_EnteredBackground(object sender, Windows.ApplicationModel.EnteredBackgroundEventArgs e)
+        {
+            await CleanupCameraAsync();
+        }
+
+        // 清理相机
+        private async Task CleanupCameraAsync()
+        {
+            if (_capture != null)
+            {
+                if (_isPreviewing)
+                {
+                    await _capture.StopPreviewAsync();
+                }
+
+                await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
+                    if (_displayRequest != null)
+                    {
+                        _displayRequest.RequestRelease();
+                    }
+
+                    _capture.Dispose();
+                    _capture = null;
+                });
             }
         }
 
@@ -294,9 +343,6 @@ namespace 物理实验助手.Function_Xaml
 
         #region 相机操作
 
-        // 不会锁屏
-        private readonly DisplayRequest _displayRequest = new DisplayRequest();
-
         private void photo_Checked(object sender, RoutedEventArgs e)
         {
             this.StartVideo.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
@@ -367,36 +413,6 @@ namespace 物理实验助手.Function_Xaml
         {
             SuspendVideo.Content = "暂停录制";
             await _capture.ResumeRecordAsync();
-        }
-
-        private async void resume_preview(object sender, RoutedEventArgs e)
-        {
-            // 用户离开再回来时，却发现预览卡死了，这让人很不爽
-            try
-            {
-                await this.InitializeCapture();
-                // 调用相机
-                _capture = null;
-                _capture = AppMediaCapture;
-                this.myCamera.Source = _capture;
-                // 不会锁屏
-                _displayRequest.RequestActive();
-                // 启动预览
-                await _capture.StartPreviewAsync();
-                // 连续对焦
-                var focusControl = _capture.VideoDeviceController.FocusControl;
-                if (focusControl.Supported)
-                {
-                    await focusControl.UnlockAsync();
-                    var settings = new FocusSettings { Mode = FocusMode.Continuous, AutoFocusRange = AutoFocusRange.FullRange };
-                    focusControl.Configure(settings);
-                    await focusControl.FocusAsync();
-                }
-            }
-            catch
-            {
-                msg.Text += "相机打开错误";
-            }
         }
 
         #endregion

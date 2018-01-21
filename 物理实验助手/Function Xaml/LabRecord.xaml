@@ -46,11 +46,9 @@
                 <PivotItem Header="相机记录">
                     <Grid>
                         <TextBlock x:Name="msg"/>
-                        <CaptureElement x:Name="myCamera"/>
+                        <CaptureElement x:Name="myCamera" Stretch="UniformToFill"/>
                         <Border HorizontalAlignment="Right" Padding="10" Background="#59000000">
                             <StackPanel Width="125" RequestedTheme="Dark">
-                                <Button Click="resume_preview" Width="100" Content="你好，相机"/>
-                                <TextBlock />
                                 <RadioButton Checked="photo_Checked" x:Name="photo" Content="拍照片" Tag="1"/>
                                 <RadioButton Checked="video_Checked" x:Name="video" Content="录视频" Margin="0,0,0,40" Tag="2"/>
                                 <Button Click="CapPhoto_Click" x:Name="CapPhoto" Content="拍照" Width="100" Visibility="Collapsed"/>
