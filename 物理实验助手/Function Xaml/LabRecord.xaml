@@ -22,24 +22,24 @@
             <Pivot Margin="0,0,0,10">
                 <PivotItem Header="文本记录">
                     <Grid Margin="10,0,10,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="70"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox x:Name="Labrecord" Grid.Column="0" TextWrapping="Wrap" IsSpellCheckEnabled="False" AcceptsReturn="True"/>
-                        <Grid Grid.Column="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-                            <Button Grid.Row="0" Content="清空" Click="clear" HorizontalAlignment="Stretch"/>
-                            <Button Grid.Row="1" Content="保存" Click="save" HorizontalAlignment="Stretch"/>
-                            <Button Grid.Row="2" Content="另存为" Click="othersave" HorizontalAlignment="Stretch"/>
-                            <Button Grid.Row="3" Content="新建" Click="newfile" HorizontalAlignment="Stretch"/>
-                            <Button Grid.Row="4" Content="删除" Click="deletefile" HorizontalAlignment="Stretch"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="48"/>
+                        </Grid.RowDefinitions>
+                        <TextBox x:Name="Labrecord" Grid.Row="0" TextWrapping="Wrap" IsSpellCheckEnabled="False" AcceptsReturn="True"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Content="清空" Click="clear" Background="#FF47A5CD" HorizontalAlignment="Stretch"/>
+                            <Button Grid.Column="1" Content="保存" Click="save" Background="#FF456782" HorizontalAlignment="Stretch"/>
+                            <Button Grid.Column="2" Content="另存为" Click="othersave" Background="#FFF7B237" HorizontalAlignment="Stretch"/>
+                            <Button Grid.Column="3" Content="新建" Click="newfile" Background="#FFFA3F53" HorizontalAlignment="Stretch"/>
+                            <Button Grid.Column="4" Content="删除" Click="deletefile" Background="#FF55C1B1" HorizontalAlignment="Stretch"/>
                         </Grid>
                     </Grid>
                 </PivotItem>
