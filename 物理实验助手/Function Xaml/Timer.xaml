@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="#EAEDCC">
+    <Grid Background="#FFC3C3C4">
 
         <CommandBar Background="#FF456782" Foreground="White">
             <CommandBar.Content>
@@ -23,7 +23,7 @@
 
         <Grid Margin="0,48,0,0">
             <TextBlock x:Name="timerecord" Foreground="#FF456792" FontSize="25"/>
-            <ToggleButton Checked="start" Unchecked="end" ClickMode="Press" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <ToggleButton Checked="start" Unchecked="end" ClickMode="Press" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock x:Name="timestring" Text="00:00:00.00" Foreground="Black" FontSize="50"/>
             </ToggleButton>
         </Grid>

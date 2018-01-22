@@ -50,7 +50,7 @@ namespace 物理实验助手.Function_Xaml
         private int m, nx, ny;        //序偶和两组数据的个数
 
         // 矩阵计算
-        private decimal[,] A, B;       //未确定规模的数组(这要是C++，绝对睁眼瞎)
+        private double[,] A, B;       //未确定规模的数组(这要是C++，绝对睁眼瞎)
         private int Ai, Aj, Bi, Bj;   //矩阵的实际规模
         private Function_Class.Calculate mycalculator = new Function_Class.Calculate();
 
@@ -108,13 +108,13 @@ namespace 物理实验助手.Function_Xaml
             record += "\t\n" + "矩阵计算数据：" + "\t\n";
             if (collectA() == 0)
             {
-                var a = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+                var a = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
                 var _a = a.DenseOfArray(A);
                 record += "A：" + _a.ToString();
             }
             if (collectB() == 0)
             {
-                var b = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+                var b = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
                 var _b = b.DenseOfArray(B);
                 record += "B：" + _b.ToString();
             }
@@ -410,7 +410,7 @@ namespace 物理实验助手.Function_Xaml
             }
             if (Ai == 0 && Aj == 0) return 1;
             Ai++; Aj++;
-            A = new decimal[Ai, Aj];
+            A = new double[Ai, Aj];
             for (int i = 0; i < Ai; i++)
             {
                 for (int j = 0; j < Aj; j++)
@@ -419,7 +419,7 @@ namespace 物理实验助手.Function_Xaml
                     {
                         try
                         {
-                            A[i, j] = Convert.ToDecimal(matrix_1[i, j].Text);
+                            A[i, j] = Convert.ToDouble(matrix_1[i, j].Text);
                         }
                         catch
                         {
@@ -430,7 +430,7 @@ namespace 物理实验助手.Function_Xaml
                                 case 1: out_matrix.Text = "出现非法输入，除数不为零"; return 1;
                                 case 3: out_matrix.Text = "出现非法输入，不能识别输入符号"; return 1;
                                 case 4: break;
-                                default: A[i, j] = mycalculator._result; break;
+                                default: A[i, j] = Convert.ToDouble(mycalculator._result); break;
                             }
                             mycalculator.formula = "";
                         }
@@ -456,7 +456,7 @@ namespace 物理实验助手.Function_Xaml
             }
             if (Bi == 0 && Bj == 0) return 1;
             Bi++; Bj++;
-            B = new decimal[Bi, Bj];
+            B = new double[Bi, Bj];
             for (int i = 0; i < Bi; i++)
             {
                 for (int j = 0; j < Bj; j++)
@@ -465,7 +465,7 @@ namespace 物理实验助手.Function_Xaml
                     {
                         try
                         {
-                            B[i, j] = Convert.ToDecimal(matrix_2[i, j].Text);
+                            B[i, j] = Convert.ToDouble(matrix_2[i, j].Text);
                         }
                         catch
                         {
@@ -475,7 +475,7 @@ namespace 物理实验助手.Function_Xaml
                             {
                                 case 1: out_matrix.Text = "出现非法输入，除数不为零"; return 1;
                                 case 3: out_matrix.Text = "出现非法输入，不能识别输入符号"; return 1;
-                                default: B[i, j] = mycalculator._result; break;
+                                default: B[i, j] = Convert.ToDouble(mycalculator._result); break;
                             }
                             mycalculator.formula = "";
                         }
@@ -489,9 +489,9 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectA() == 1 || collectB() == 1)
                 return;
-            var a = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var a = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _a = a.DenseOfArray(A);
-            var b = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var b = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _b = b.DenseOfArray(B);
             try
             {
@@ -508,9 +508,9 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectA() == 1 || collectB() == 1)
                 return;
-            var a = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var a = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _a = a.DenseOfArray(A);
-            var b = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var b = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _b = b.DenseOfArray(B);
             try
             {
@@ -527,9 +527,9 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectA() == 1 || collectB() == 1)
                 return;
-            var a = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var a = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _a = a.DenseOfArray(A);
-            var b = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var b = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _b = b.DenseOfArray(B);
             try
             {
@@ -546,9 +546,9 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectA() == 1 || collectB() == 1)
                 return;
-            var a = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var a = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _a = a.DenseOfArray(A);
-            var b = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var b = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _b = b.DenseOfArray(B);
             try
             {
@@ -565,9 +565,9 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectA() == 1 || collectB() == 1)
                 return;
-            var a = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var a = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _a = a.DenseOfArray(A);
-            var b = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var b = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _b = b.DenseOfArray(B);
             try
             {
@@ -584,7 +584,7 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectA() == 1)
                 return;
-            var a = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var a = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _a = a.DenseOfArray(A);
             _a = _a.Transpose();
             out_matrix.Text = "A的转置：" + _a.ToString();
@@ -594,7 +594,7 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectB() == 1)
                 return;
-            var b = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var b = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _b = b.DenseOfArray(B);
             _b = _b.Transpose();
             out_matrix.Text = "B的转置：" + _b.ToString();
@@ -604,7 +604,7 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectA() == 1)
                 return;
-            var a = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var a = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _a = a.DenseOfArray(A);
             try
             {
@@ -635,7 +635,7 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectB() == 1)
                 return;
-            var b = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var b = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _b = b.DenseOfArray(B);
             try
             {
@@ -666,11 +666,11 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectA() == 1)
                 return;
-            var a = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var a = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _a = a.DenseOfArray(A);
             try
             {
-                decimal value = _a.Determinant();
+                double value = _a.Determinant();
                 out_matrix.Text = "A的行列式的值：" + value.ToString();
             }
             catch
@@ -683,11 +683,11 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectB() == 1)
                 return;
-            var b = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var b = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _b = b.DenseOfArray(B);
             try
             {
-                decimal value = _b.Determinant();
+                double value = _b.Determinant();
                 out_matrix.Text = "B的行列式的值：" + value.ToString();
             }
             catch
@@ -700,7 +700,7 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectA() == 1)
                 return;
-            var a = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var a = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _a = a.DenseOfArray(A);
             int rank = _a.Rank();
             out_matrix.Text = "A的秩：" + rank.ToString();
@@ -710,7 +710,7 @@ namespace 物理实验助手.Function_Xaml
         {
             if (collectB() == 1)
                 return;
-            var b = MathNet.Numerics.LinearAlgebra.Matrix<decimal>.Build;
+            var b = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build;
             var _b = b.DenseOfArray(B);
             int rank = _b.Rank();
             out_matrix.Text = "B的秩：" + rank.ToString();
