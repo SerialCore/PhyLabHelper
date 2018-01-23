@@ -40,7 +40,7 @@ namespace 物理实验助手.Function_Xaml
 
         // 不确定度计算
         private decimal t;           // t因子
-        private decimal[] Num = new decimal[10];     //多次测量值的std::decimal类型                                      
+        private decimal[] Num = new decimal[20];     //多次测量值的std::decimal类型                                      
         private decimal _average, _variance, _p, _A_uncertainty, _B_uncertainty, _All_uncertainty, _min_scale, _errors;   //计算后的数据
         private int n;              //输入数据的个数
 
@@ -71,7 +71,7 @@ namespace 物理实验助手.Function_Xaml
                     timelist = timelist.Replace("\t\n", "");
                     // 去除最后一个‘s’，防止数组最后多出一个空字符串
                     timelist = timelist.TrimEnd('s');
-                    string[] list = new string[10];
+                    string[] list = new string[20];
                     list = timelist.Split('s');
                     for (int i = 0; i < list.Length; i++)
                     {
