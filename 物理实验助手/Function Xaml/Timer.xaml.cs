@@ -92,7 +92,7 @@ namespace 物理实验助手.Function_Xaml
         private void end(object sender, RoutedEventArgs e)
         {
             PeriodicTimer.Cancel();
-            if (n < 10)
+            if (n < 20)
             {
                 timerecord.Text += (h * 3600 + m * 60 + s + (decimal)hs / 100).ToString("F2") + "s" + "\t\n";
             }

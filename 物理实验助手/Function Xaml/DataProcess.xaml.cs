@@ -20,6 +20,7 @@ namespace 物理实验助手.Function_Xaml
             this.NavigationCacheMode = NavigationCacheMode.Required;
 
             mydata[0] = num1; mydata[1] = num2; mydata[2] = num3; mydata[3] = num4; mydata[4] = num5; mydata[5] = num6; mydata[6] = num7; mydata[7] = num8; mydata[8] = num9; mydata[9] = num10;
+            mydata[10] = num11; mydata[11] = num12; mydata[12] = num13; mydata[13] = num14; mydata[14] = num15; mydata[15] = num16; mydata[16] = num17; mydata[17] = num18; mydata[18] = num19; mydata[19] = num20;
             mydata_x[0] = x1; mydata_x[1] = x2; mydata_x[2] = x3; mydata_x[3] = x4; mydata_x[4] = x5; mydata_x[5] = x6; mydata_x[6] = x7; mydata_x[7] = x8; mydata_x[8] = x9; mydata_x[9] = x10;
             mydata_x[10] = x11; mydata_x[11] = x12; mydata_x[12] = x13; mydata_x[13] = x14; mydata_x[14] = x15; mydata_x[15] = x16; mydata_x[16] = x17; mydata_x[17] = x18; mydata_x[18] = x19; mydata_x[19] = x20;
             mydata_y[0] = y1; mydata_y[1] = y2; mydata_y[2] = y3; mydata_y[3] = y4; mydata_y[4] = y5; mydata_y[5] = y6; mydata_y[6] = y7; mydata_y[7] = y8; mydata_y[8] = y9; mydata_y[9] = y10;
@@ -31,7 +32,7 @@ namespace 物理实验助手.Function_Xaml
         }
 
         // 对象数组
-        private TextBox[] mydata = new TextBox[10];
+        private TextBox[] mydata = new TextBox[20];
         private TextBox[] mydata_x = new TextBox[20];
         private TextBox[] mydata_y = new TextBox[20];
         private TextBox[,] matrix_1 = new TextBox[4, 4];
@@ -133,12 +134,12 @@ namespace 物理实验助手.Function_Xaml
             // 初始化数据
             n = 0;
             t = 0;
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
                 Num[i] = 0.0m;
             _average = _variance = _p = _A_uncertainty = _B_uncertainty = _All_uncertainty = _min_scale = _errors = 0;
 
             // 判断如果输入框不为空，就将输入直接转化为decimal,这样可以简化空间复杂度，减少间接数据量
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
             {
                 if (mydata[i].Text != "")
                 {
@@ -209,47 +210,87 @@ namespace 物理实验助手.Function_Xaml
             }
             if (_p == 0.9m)    //求t因子
             {
-                if (n == 3) t = 2.92m;
-                if (n == 4) t = 2.35m;
-                if (n == 5) t = 2.13m;
-                if (n == 6) t = 2.02m;
-                if (n == 7) t = 1.94m;
-                if (n == 8) t = 1.90m;
-                if (n == 9) t = 1.86m;
-                if (n == 10) t = 1.83m;
+                if (n == 3) t = 2.35m;
+                if (n == 4) t = 2.13m;
+                if (n == 5) t = 2.02m;
+                if (n == 6) t = 1.94m;
+                if (n == 7) t = 1.89m;
+                if (n == 8) t = 1.86m;
+                if (n == 9) t = 1.83m;
+                if (n == 10) t = 1.81m;
+                if (n == 11) t = 1.80m;
+                if (n == 12) t = 1.78m;
+                if (n == 13) t = 1.77m;
+                if (n == 14) t = 1.76m;
+                if (n == 15) t = 1.75m;
+                if (n == 16) t = 1.75m;
+                if (n == 17) t = 1.74m;
+                if (n == 18) t = 1.73m;
+                if (n == 19) t = 1.73m;
+                if (n == 20) t = 1.72m;
             }
             if (_p == 0.95m)
             {
-                if (n == 3) t = 4.3m;
-                if (n == 4) t = 3.38m;
-                if (n == 5) t = 2.78m;
-                if (n == 6) t = 2.57m;
-                if (n == 7) t = 2.46m;
-                if (n == 8) t = 2.37m;
-                if (n == 9) t = 2.31m;
-                if (n == 10) t = 2.26m;
+                if (n == 3) t = 3.18m;
+                if (n == 4) t = 2.78m;
+                if (n == 5) t = 2.57m;
+                if (n == 6) t = 2.45m;
+                if (n == 7) t = 2.36m;
+                if (n == 8) t = 2.31m;
+                if (n == 9) t = 2.26m;
+                if (n == 10) t = 2.23m;
+                if (n == 11) t = 2.20m;
+                if (n == 12) t = 2.18m;
+                if (n == 13) t = 2.16m;
+                if (n == 14) t = 2.14m;
+                if (n == 15) t = 2.13m;
+                if (n == 16) t = 2.12m;
+                if (n == 17) t = 2.11m;
+                if (n == 18) t = 2.10m;
+                if (n == 19) t = 2.09m;
+                if (n == 20) t = 2.09m;
             }
             if (_p == 0.99m)
             {
-                if (n == 3) t = 9.93m;
-                if (n == 4) t = 5.83m;
-                if (n == 5) t = 4.6m;
-                if (n == 6) t = 4.03m;
-                if (n == 7) t = 3.71m;
-                if (n == 8) t = 3.5m;
-                if (n == 9) t = 3.36m;
-                if (n == 10) t = 3.25m;
+                if (n == 3) t = 5.84m;
+                if (n == 4) t = 4.60m;
+                if (n == 5) t = 4.03m;
+                if (n == 6) t = 3.71m;
+                if (n == 7) t = 3.50m;
+                if (n == 8) t = 3.36m;
+                if (n == 9) t = 3.25m;
+                if (n == 10) t = 3.17m;
+                if (n == 11) t = 3.11m;
+                if (n == 12) t = 3.05m;
+                if (n == 13) t = 3.01m;
+                if (n == 14) t = 2.98m;
+                if (n == 15) t = 2.95m;
+                if (n == 16) t = 2.92m;
+                if (n == 17) t = 2.90m;
+                if (n == 18) t = 2.88m;
+                if (n == 19) t = 2.86m;
+                if (n == 20) t = 2.85m;
             }
             if (_p == 0.683m)
             {
-                if (n == 3) t = 1.32m;
-                if (n == 4) t = 1.2m;
-                if (n == 5) t = 1.14m;
-                if (n == 6) t = 1.11m;
-                if (n == 7) t = 1.09m;
-                if (n == 8) t = 1.08m;
-                if (n == 9) t = 1.07m;
-                if (n == 10) t = 1.06m;
+                if (n == 3) t = 1.20m;
+                if (n == 4) t = 1.14m;
+                if (n == 5) t = 1.11m;
+                if (n == 6) t = 1.09m;
+                if (n == 7) t = 1.08m;
+                if (n == 8) t = 1.07m;
+                if (n == 9) t = 1.06m;
+                if (n == 10) t = 1.05m;
+                if (n == 11) t = 1.05m;
+                if (n == 12) t = 1.04m;
+                if (n == 13) t = 1.04m;
+                if (n == 14) t = 1.04m;
+                if (n == 15) t = 1.03m;
+                if (n == 16) t = 1.03m;
+                if (n == 17) t = 1.03m;
+                if (n == 18) t = 1.03m;
+                if (n == 19) t = 1.03m;
+                if (n == 20) t = 1.03m;
             }
             _A_uncertainty = (decimal)Math.Abs((double)t * Math.Sqrt((double)_variance / (n - 1)));  //取绝对值是为了消除-0的情况
             _B_uncertainty = _min_scale / _errors;
@@ -266,7 +307,7 @@ namespace 物理实验助手.Function_Xaml
 
         private void clear_un(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
                 mydata[i].Text = "";
             average.Text = ""; variance.Text = ""; A_uncertainty.Text = ""; B_uncertainty.Text = ""; All_uncertainty.Text = ""; min_scale.Text = "";
             out_analyse.Text = "";

@@ -50,6 +50,16 @@
                                         <RowDefinition Height="40"/>
                                         <RowDefinition Height="40"/>
                                         <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
                                     </Grid.RowDefinitions>
                                     <TextBox x:Name="num1" Grid.Row="0" InputScope="Number" VerticalAlignment="Center"/>
                                     <TextBox x:Name="num2" Grid.Row="1" InputScope="Number" VerticalAlignment="Center"/>
@@ -61,6 +71,16 @@
                                     <TextBox x:Name="num8" Grid.Row="7" InputScope="Number" VerticalAlignment="Center"/>
                                     <TextBox x:Name="num9" Grid.Row="8" InputScope="Number" VerticalAlignment="Center"/>
                                     <TextBox x:Name="num10" Grid.Row="9" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num11" Grid.Row="10" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num12" Grid.Row="11" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num13" Grid.Row="12" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num14" Grid.Row="13" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num15" Grid.Row="14" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num16" Grid.Row="15" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num17" Grid.Row="16" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num18" Grid.Row="17" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num19" Grid.Row="18" InputScope="Number" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="num20" Grid.Row="19" InputScope="Number" VerticalAlignment="Center"/>
                                 </Grid>
                             </ScrollViewer>
                             <Button Click="calculate" Content="计算数据" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF0091FF"/>
