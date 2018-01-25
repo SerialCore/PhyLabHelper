@@ -1,1 +1,1 @@
-C:\Users\zwxat\source\repos\物理实验助手\物理实验助手\bin\ARM\Release\Upload\物理实验助手_3.3.35.0\物理实验助手_3.3.35.0_x86_x64_arm.appxbundle
+C:\Users\zwxat\source\repos\物理实验助手\物理实验助手\bin\ARM\Release\Upload\物理实验助手_3.4.36.0\物理实验助手_3.4.36.0_x86_x64_arm.appxbundle
