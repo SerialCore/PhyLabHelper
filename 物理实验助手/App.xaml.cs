@@ -75,6 +75,40 @@ namespace 物理实验助手
             }
         }
 
+        protected async override void OnActivated(IActivatedEventArgs args)
+        {
+            // 隐藏任务栏
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                await Windows.UI.ViewManagement.StatusBar.GetForCurrentView().HideAsync();
+            }
+            // 强制横屏
+            Windows.Graphics.Display.DisplayInformation.AutoRotationPreferences = Windows.Graphics.Display.DisplayOrientations.Landscape;
+
+            await Task.Delay(TimeSpan.FromSeconds(2));
+
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            // 不要在窗口已包含内容时重复应用程序初始化，
+            // 只需确保窗口处于活动状态
+            if (rootFrame == null)
+            {
+                // 创建要充当导航上下文的框架，并导航到第一页
+                rootFrame = new Frame();
+
+                rootFrame.NavigationFailed += OnNavigationFailed;
+
+                // 将框架放在当前窗口中
+                Window.Current.Content = rootFrame;
+            }
+            
+            // Open the page that we created to handle activation for results.
+            rootFrame.Navigate(typeof(MainPage), args);
+
+            // Ensure the current window is active.
+            Window.Current.Activate();
+        }
+
         /// <summary>
         /// 导航到特定页失败时调用
         /// </summary>
