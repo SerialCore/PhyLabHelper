@@ -9,14 +9,14 @@
 
     <Grid Background="White">
 
-        <CommandBar Background="#FF47A5CD" Foreground="White">
+        <CommandBar Background="#FF47A5CD" Foreground="White" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
             <CommandBar.Content>
-                <TextBlock Text="RSS" FontSize="20" Margin="58,10,0,0"/>
+                <TextBlock Text="RSS" Margin="52,10,0,0"/>
             </CommandBar.Content>
             <AppBarButton Click="AppBarButton_Click" Icon="Link" Label="RSS源" Foreground="White"/>
         </CommandBar>
 
-        <Grid Margin="0,48,0,0">
+        <Grid Margin="0,40,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>

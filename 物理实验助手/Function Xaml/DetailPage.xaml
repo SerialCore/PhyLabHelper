@@ -13,10 +13,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" Margin="48,0,0,0">
-            <StackPanel Orientation="Horizontal" Margin="1,5,0,5">
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" Margin="40,0,0,0">
+            <StackPanel Orientation="Horizontal">
                 <Button x:Name="backButton"  Click="backButton_Click" Style="{StaticResource  NavigationBackButtonNormalStyle}"/>
-                <TextBlock Text="{Binding Title}" IsTextSelectionEnabled="True" FontSize="25" Margin="12"/>
+                <TextBlock Text="{Binding Title}" IsTextSelectionEnabled="True" FontSize="25"/>
             </StackPanel>
         </ScrollViewer>
 

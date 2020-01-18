@@ -9,21 +9,21 @@
 
     <Grid Background="Beige">
 
-        <CommandBar Background="#FF8282B6" Foreground="White">
+        <CommandBar Background="#FF8282B6" Foreground="White" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
             <CommandBar.Content>
-                <TextBlock Text="关于" FontSize="20" Margin="58,10,0,0"/>
+                <TextBlock Text="关于" Margin="52,10,0,0"/>
             </CommandBar.Content>
         </CommandBar>
 
-        <Grid Margin="0,48,0,0">
-            <ScrollViewer Margin="30,30,100,30" VerticalScrollBarVisibility="Hidden">
+        <Grid Margin="0,40,0,0">
+            <ScrollViewer Margin="30,30,50,30" VerticalScrollBarVisibility="Hidden">
                 <StackPanel Orientation="Vertical">
-                    <HyperlinkButton Content="联系开发者" NavigateUri="mailto:zwx.atomx@outlook.com"/>
+                    <HyperlinkButton Content="zwx.atomx@outlook.com" NavigateUri="mailto:zwx.atomx@outlook.com"/>
                     <TextBlock />
                     <TextBlock Text="适用" FontSize="20"/>
                     <TextBlock TextWrapping="Wrap">
-                                1. 适用的操作系统：Windows10   ,  Windows10 Mobile
-                                <LineBreak/>2. 适用的设备：PC,Windows10平板,WindowsPhone10。此应用可以适用于PC，但是在设计的时候我是按照移动设备的标准设计的，
+                                1. 适用的操作系统：Windows10
+                                <LineBreak/>2. 适用的设备：PC,Windows10平板。此应用可以适用于PC，但是在设计的时候我是按照移动设备的标准设计的，
                                 这一点尤其体现在于实验记录功能：文本记录适用于PC，相机记录适用于移动设备，实际上相机记录更加常用。<LineBreak/>
                     </TextBlock>
                     <TextBlock Text="秒表" FontSize="20"/>

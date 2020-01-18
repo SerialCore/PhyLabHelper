@@ -9,19 +9,18 @@
 
     <Grid Background="White">
 
-        <CommandBar Background="#FF456782" Foreground="White">
+        <CommandBar Background="#FF456782" Foreground="White" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
             <CommandBar.Content>
-                <TextBlock Text="秒表" FontSize="20" Margin="58,10,0,0"/>
+                <TextBlock Text="秒表" Margin="52,10,0,0"/>
             </CommandBar.Content>
             <AppBarButton Click="calculate" Icon="Link" Label="求不确定度" Foreground="White"/>
             <AppBarSeparator Foreground="White"/>
             <AppBarButton Click="place_on_file" Icon="Copy" Label="数据归档" Foreground="White"/>
             <AppBarSeparator Foreground="White"/>
             <AppBarButton Click="refresh" Icon="Delete" Label="清空数据" Foreground="White"/>
-            <AppBarSeparator Foreground="White"/>
         </CommandBar>
 
-        <Grid Margin="0,48,0,0">
+        <Grid Margin="0,40,0,0">
             <TextBlock x:Name="timerecord" Foreground="#FF456792" FontSize="25"/>
             <ToggleButton Checked="start" Unchecked="end" ClickMode="Press" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <TextBlock x:Name="timestring" Text="00:00:00.00" Foreground="Black" FontSize="50"/>

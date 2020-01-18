@@ -29,18 +29,8 @@ namespace 物理实验助手
         /// 将在启动应用程序以打开特定文件等情况下使用。
         /// </summary>
         /// <param name="e">有关启动请求和过程的详细信息。</param>
-        protected async override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            // 隐藏任务栏
-            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-            {
-                await Windows.UI.ViewManagement.StatusBar.GetForCurrentView().HideAsync();
-            }
-            // 强制横屏
-            Windows.Graphics.Display.DisplayInformation.AutoRotationPreferences = Windows.Graphics.Display.DisplayOrientations.Landscape;
-
-            await Task.Delay(TimeSpan.FromSeconds(2));
-
             Frame rootFrame = Window.Current.Content as Frame;
 
             // 不要在窗口已包含内容时重复应用程序初始化，
@@ -75,20 +65,10 @@ namespace 物理实验助手
             }
         }
 
-        protected async override void OnActivated(IActivatedEventArgs args)
+        protected override void OnActivated(IActivatedEventArgs args)
         {
             if (args.Kind == ActivationKind.Protocol)
             {
-                // 隐藏任务栏
-                if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-                {
-                    await Windows.UI.ViewManagement.StatusBar.GetForCurrentView().HideAsync();
-                }
-                // 强制横屏
-                Windows.Graphics.Display.DisplayInformation.AutoRotationPreferences = Windows.Graphics.Display.DisplayOrientations.Landscape;
-
-                await Task.Delay(TimeSpan.FromSeconds(2));
-
                 Frame rootFrame = Window.Current.Content as Frame;
 
                 // 不要在窗口已包含内容时重复应用程序初始化，

@@ -14,7 +14,7 @@
                 <SplitView.Pane>
                     <ListView x:Name="function_list" ItemsSource="{Binding Scenarios}" IsItemClickEnabled="True" ItemClick="function_list_ItemClick" SelectionMode="Single"
                               ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                              Margin="0,48,0,0">
+                              Margin="0,40,0,0">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Height="48" RequestedTheme="Dark">
@@ -33,7 +33,7 @@
             </SplitView>
         </Grid>
 
-        <Button Click="Button_Click" Width="48" Height="48" Background="#FF47A5DD" VerticalAlignment="Top">
+        <Button Click="Button_Click" Width="40" Height="40" Background="#FF47A5DD" VerticalAlignment="Top">
             <TextBlock Text="&#xE700;" FontFamily="Segoe MDL2 Assets" FontSize="20" Foreground="White"/>
         </Button>
 

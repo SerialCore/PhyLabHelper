@@ -9,13 +9,13 @@
 
     <Grid Background="White">
 
-        <CommandBar Background="#FFA9A999" Foreground="White" >
+        <CommandBar Background="#FFA9A999" Foreground="White" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
             <CommandBar.Content>
-                <TextBlock Text="参数查询" FontSize="20" Margin="58,10,0,0"/>
+                <TextBlock Text="参数查询" Margin="52,10,0,0"/>
             </CommandBar.Content>
         </CommandBar>
 
-        <Grid Margin="0,48,0,0">
+        <Grid Margin="0,40,0,0">
             <Pivot Margin="0,0,0,10">
                 <PivotItem Header="常规">
                     <Grid BorderBrush="Black" BorderThickness="1">

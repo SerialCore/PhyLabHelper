@@ -9,16 +9,16 @@
 
     <Grid Background="White">
 
-        <CommandBar Background="#FFF7B237" Foreground="White">
+        <CommandBar Background="#FFF7B237" Foreground="White" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
             <CommandBar.Content>
-                <TextBlock Text="实验记录    " FontSize="20" Margin="58,10,0,0">
+                <TextBlock Text="实验记录    " Margin="52,10,0,0">
                     <Run x:Name="fileName" Text="labrecord"/>
                 </TextBlock>
             </CommandBar.Content>
             <AppBarButton Click="open_list" Icon="List" Label="文件夹" Foreground="White"/>
         </CommandBar>
 
-        <Grid Margin="0,48,0,0">
+        <Grid Margin="0,40,0,0">
             <Pivot Margin="0,0,0,10">
                 <PivotItem Header="文本记录">
                     <Grid Margin="10,0,10,0">
