@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="16496zhwx.6164141C316F3" Publisher="CN=73D1BF38-7322-4954-A5E9-541DD3BC2D66" Version="3.6.45.0" />
+  <Identity Name="16496zhwx.6164141C316F3" Publisher="CN=73D1BF38-7322-4954-A5E9-541DD3BC2D66" Version="3.7.48.0" />
   <mp:PhoneIdentity PhoneProductId="748504cb-416d-4cf1-9022-25886bebefc6" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>物理实验助手</DisplayName>
@@ -25,11 +25,6 @@
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="transparent" />
       </uap:VisualElements>
-      <Extensions>
-        <uap:Extension Category="windows.protocol">
-          <uap:Protocol Name="blamderphylab" />
-        </uap:Extension>
-      </Extensions>
     </Application>
   </Applications>
   <Capabilities>
