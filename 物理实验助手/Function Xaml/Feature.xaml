@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="物理实验助手.Function_Xaml.Feature"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:物理实验助手.Function_Xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <GridViewItem Height="400" Width="300" Tapped="Card_Tapped">
+            <Grid>
+                <Image Source="Assets/Research Flow.jpg" Margin="0,0,0,100"/>
+                <TextBlock TextWrapping="Wrap" VerticalAlignment="Bottom" Height="120">
+                    <Run Text="Research Flow" FontSize="20"/>
+                    <LineBreak/><Run FontSize="15">此应用已停止功能更新，如果您仍需此类科研助手工具，请移步新的应用。
+                        Research Flow将会提供RSS阅读，论文检索，爬虫搜索以及便签、笔记等工具。</Run>
+                </TextBlock>
+            </Grid>
+        </GridViewItem>
+    </Grid>
+    
+</Page>

@@ -113,6 +113,9 @@
     <Compile Include="Function Xaml\DetailPage.xaml.cs">
       <DependentUpon>DetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Function Xaml\Feature.xaml.cs">
+      <DependentUpon>Feature.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Function Xaml\LabRecord.xaml.cs">
       <DependentUpon>LabRecord.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,7 @@
     <Content Include="Function Class\flotr2.min.js" />
     <Content Include="Function Class\Linear_Chart.html" />
     <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Function Xaml\Assets\Research Flow.jpg" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +176,10 @@
     <Page Include="Function Xaml\DetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Function Xaml\Feature.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Function Xaml\LabRecord.xaml">
       <SubType>Designer</SubType>
@@ -196,12 +204,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.2.9</Version>
+      <Version>6.2.10</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Function Xaml\Function_Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

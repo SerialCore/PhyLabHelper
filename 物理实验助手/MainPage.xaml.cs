@@ -22,6 +22,7 @@ namespace 物理实验助手
             this.InitializeComponent();
             Scenarios = new ObservableCollection<Scenario>
             {
+                new Scenario() { Title = "Feature", Icon = (Symbol)0xE781, ClassType = typeof(Feature) },
                 new Scenario() { Title = "RSS", Icon = (Symbol)0xE128, ClassType = typeof(RSS) },
                 new Scenario() { Title = "秒表", Icon = (Symbol)0xE121, ClassType = typeof(Timer) },
                 new Scenario() { Title = "实验记录", Icon = (Symbol)0xE104, ClassType = typeof(LabRecord) },
@@ -38,7 +39,7 @@ namespace 物理实验助手
             StorageFile file = e.Parameter as StorageFile;
             if (file == null)
             {
-                mainFrame.Navigate(typeof(RSS));
+                mainFrame.Navigate(typeof(Feature));
             }
             else
             {
