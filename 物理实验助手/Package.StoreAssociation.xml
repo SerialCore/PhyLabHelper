@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StoreAssociation xmlns="http://schemas.microsoft.com/appx/2010/storeassociation">
   <Publisher>CN=73D1BF38-7322-4954-A5E9-541DD3BC2D66</Publisher>
-  <PublisherDisplayName>Serial Core Studio</PublisherDisplayName>
+  <PublisherDisplayName>SerialCore</PublisherDisplayName>
   <DeveloperAccountType>MSA</DeveloperAccountType>
   <GeneratePackageHash>http://www.w3.org/2001/04/xmlenc#sha256</GeneratePackageHash>
   <SupportedLocales>
@@ -364,7 +364,6 @@
     <MainPackageIdentityName>16496zhwx.6164141C316F3</MainPackageIdentityName>
     <ReservedNames>
       <ReservedName>物理实验助手</ReservedName>
-      <ReservedName>Phy-MyLab Pro</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
@@ -381,6 +380,7 @@
     <MainPackageIdentityName>16496zhwx.PaintPanelLite</MainPackageIdentityName>
     <MainPackageIdentityName>16496zhwx.PrivateAlbums</MainPackageIdentityName>
     <MainPackageIdentityName>16496zhwx.ResearchFlow</MainPackageIdentityName>
+    <MainPackageIdentityName>16496zhwx.sqlitiamo</MainPackageIdentityName>
     <MainPackageIdentityName>16496zhwx.TaskFlowforResearch</MainPackageIdentityName>
     <MainPackageIdentityName>16496zhwx.MicrosoftDevelopRSS</MainPackageIdentityName>
     <MainPackageIdentityName>16496zhwx.35404E73783C3</MainPackageIdentityName>
@@ -390,17 +390,17 @@
       <PackageInfo>
         <OsMinVersion>0.0.0.0</OsMinVersion>
         <PackageArchitecture>X86</PackageArchitecture>
-        <PackageMaxArchitectureVersion>3.5.38.0</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>3.8.50.0</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>0.0.0.0</OsMinVersion>
         <PackageArchitecture>X64</PackageArchitecture>
-        <PackageMaxArchitectureVersion>3.5.38.0</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>3.8.50.0</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>0.0.0.0</OsMinVersion>
         <PackageArchitecture>Arm</PackageArchitecture>
-        <PackageMaxArchitectureVersion>3.5.38.0</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>3.8.50.0</PackageMaxArchitectureVersion>
       </PackageInfo>
     </BundleInfo>
   </PackageInfoList>
